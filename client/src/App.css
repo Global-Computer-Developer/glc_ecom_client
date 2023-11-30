@@ -2845,7 +2845,7 @@ form p {
   max-height: 0;
   max-width: 0;
   transform: translateX(20px);
-  transition: transform 0.2s, visibility 0.2s, opacity 0.2s;
+  transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
 }
 
 :is(.mini-cart .products, .mini-wishlist .products, .products.cart, .checkout .products) .thumbnail img {
@@ -4920,7 +4920,7 @@ input[type="number"] {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
+    transition: transform 0.25s, visibility 0.25s, opacity 0.25s;
   }
 
   nav .mega .wrapper {
@@ -5194,7 +5194,7 @@ input[type="number"] {
   opacity: 1;
   max-width: 400px;
   transform: translateY(0);
-  transition: transform 0.8s, visibility 0.8s, opacity 0.8s;
+  transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
 }
 
 .header-nav .right {
