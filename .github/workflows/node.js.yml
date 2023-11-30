@@ -27,9 +27,9 @@ jobs:
           pm2 save
           sudo service nginx restart
         env:
-          NODE_ENV: "product"
-          VITE_API_URL: "http://134.209.97.214:8000"
-          VITE_API_VERSION: "v1"
-          VITE_LOGO_MINI: "global_mini.svg"
-          VITE_LOGO_BIG_BNW: "global_big_bnw.svg"
-          VITE_LOGO_BIG: "global_big.svg"
+          NODE_ENV: ${{ vars.NODE_ENV }}
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_API_VERSION: ${{ vars.VITE_API_VERSION }}
+          VITE_LOGO_MINI: $${{ vars.VITE_LOGO_MINI }}
+          VITE_LOGO_BIG_BNW: ${{ vars.VITE_LOGO_BIG_BNW }}
+          VITE_LOGO_BIG: ${{ vars.VITE_LOGO_BIG }}
