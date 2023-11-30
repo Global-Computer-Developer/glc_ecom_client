@@ -23,12 +23,12 @@ jobs:
           npm i
           npm run build
         env:
-          NODE_ENV = product
-          VITE_API_URL = http://134.209.97.214:8000
-          VITE_API_VERSION = v1
-          VITE_LOGO_MINI = global_mini.svg
-          VITE_LOGO_BIG_BNW = global_big_bnw.svg
-          VITE_LOGO_BIG = global_big.svg
+          NODE_ENV = "product"
+          VITE_API_URL = "http://134.209.97.214:8000"
+          VITE_API_VERSION = "v1"
+          VITE_LOGO_MINI = "global_mini.svg"
+          VITE_LOGO_BIG_BNW = "global_big_bnw.svg"
+          VITE_LOGO_BIG = "global_big.svg"
       - name: Restart process management and nginx
         run:
           pm2 stop 0
