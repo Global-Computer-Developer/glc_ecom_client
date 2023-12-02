@@ -45,12 +45,11 @@ export const useFormPATCH = () => {
                     setSuccess(true)
                 }
             }).then(data => {
-                console.log(data)
                 setSuccess(true)
                 
             })
         } catch (error) {
-            console.log(error)
+            return
         } finally {
             setLoading(false)
         }

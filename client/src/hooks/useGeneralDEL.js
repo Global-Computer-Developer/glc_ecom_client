@@ -24,7 +24,6 @@ export const useGeneralDEL = () => {
             })
             .then(response => {
                 if (response.status !== 204) {
-                    console.log(response.json().then(data => {return data}))
                     throw new Error('Something went wrong!')
                 }
                 setDelStatus(!delStatus)
@@ -32,7 +31,7 @@ export const useGeneralDEL = () => {
             })
             
         } catch (error) {
-            console.log(error)
+            return
         }  
     }
 
