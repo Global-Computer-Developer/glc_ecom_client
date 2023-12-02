@@ -43,6 +43,7 @@ const SideMenuAddForm = () => {
         },
         onSubmit: async(values) => {
             values.uploaded_submenu = subSideMenu.split(',')
+            console.log(values)
             handleSideMenu(`side-menu`, values, auth)
         },
         validationSchema: Yup.object({
