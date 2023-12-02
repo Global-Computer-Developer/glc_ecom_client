@@ -35,6 +35,8 @@ const SideMenuTable = () => {
             <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Query</th>
+                    <th>Sub Side Menu</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -49,6 +51,18 @@ const SideMenuTable = () => {
                                     <span className={`ri-${item?.logo}`}></span>
                                     <span>{item.title}</span>
                                 </Link>
+                            </td>
+                            <td>{item.query}</td>
+                            <td>
+                                <ul>
+                                {
+                                    item.sub_side_menu.length != 0 &&
+                                    item.sub_side_menu.map(menu => (
+                                        <li key={menu.id}>{menu.name}</li>
+                                    ))
+                                
+                                }
+                                </ul>
                             </td>
                             <td data-label='Delete'>
                                 <ButtonClose onClick={() => {handleDelSideMenu(`side-menu`, item.id, auth)}} />

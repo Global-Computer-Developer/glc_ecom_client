@@ -7,8 +7,6 @@ const ButtonClose = ({onClick}) => {
 
   useEffect(() => {
     const confirmBtn = confirmBtnRef.current
-    
-    console.log(confirmBtn)
 
     const handleConfirmBtnClose = (e) => {
       if(!confirmBtn.contains(e.target)) {

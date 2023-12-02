@@ -4010,6 +4010,18 @@ dialog::backdrop {
 }
 
 
+.column .sub-side-menu__container {
+  padding: 2em;
+  border: 1px solid var(--border-clr);
+  border-radius: 10px;
+  margin-top: 1em;
+}
+
+.dash-table.sub-side-menu-table :where(th, td) {
+  min-width: 3em;
+}
+
+
 /* c. feature table */
 .dash-main .feature-table > p ,
 .dash-main .feature-table > h1 {

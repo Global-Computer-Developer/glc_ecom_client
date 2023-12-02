@@ -13,6 +13,8 @@ import { useAuthContext } from '../../../context/AuthContext'
 
 const SideMenuAddForm = () => {
 
+    const [subSideMenu, setSubSideMenu] = useState()
+
     const {pathname} = useLocation()
     const [loading, error, success, handleSideMenu] = useGeneralPOST()
     
@@ -37,14 +39,17 @@ const SideMenuAddForm = () => {
             title: '',
             logo: '',
             query: '',
+            uploaded_submenu: '',
         },
         onSubmit: async(values) => {
+            values.uploaded_submenu = subSideMenu.split(',')
             handleSideMenu(`side-menu`, values, auth)
         },
         validationSchema: Yup.object({
             title: Yup.string().required("enter slug title!"),
             logo: Yup.string().required("enter title!"),
             query: Yup.string().required("select query option!"),
+            uploaded_submenu: Yup.array(),
         })
     })
 
@@ -104,8 +109,9 @@ const SideMenuAddForm = () => {
                 id="query" 
                 value={formik.values.query}
                 onChange={formik.handleChange}
+                defaultValue={''}
             >
-                <option value="" disabled hidden selected>Select Query</option>
+                <option value="" disabled hidden>Select Query</option>
                 <option value={`brand`}>Brand</option>
                 <option value={`category`}>Category</option>
             </select>
@@ -125,14 +131,9 @@ const SideMenuAddForm = () => {
                 name="uploaded_submenu" 
                 id="uploaded_submenu" 
                 placeholder='e.g. processor, laptop'
-                value={formik.values.uploaded_submenu}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                value={subSideMenu}
+                onChange={(e) => {setSubSideMenu(e.target.value)}}
             />
-            {
-                formik.errors.uploaded_submenu && formik.touched.uploaded_submenu &&
-                <span className="required">{formik.errors.uploaded_submenu}</span>
-            }
             {
                 error?.uploaded_submenu &&
                 <span className="required">{error.uploaded_submenu}</span>
