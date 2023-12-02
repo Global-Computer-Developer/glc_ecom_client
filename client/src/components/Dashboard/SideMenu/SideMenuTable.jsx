@@ -65,7 +65,7 @@ const SideMenuTable = () => {
                                 </ul>
                             </td>
                             <td data-label='Delete'>
-                                <ButtonClose onClick={() => {handleDelSideMenu(`side-menu`, item.id, auth)}} />
+                                <ButtonClose onClick={() => {handleDelSideMenu(`side-menu`, item.slug, auth)}} />
                             </td>
                         </tr>
                     ))
