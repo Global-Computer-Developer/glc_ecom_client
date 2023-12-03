@@ -17,7 +17,7 @@ const Header = () => {
                 }
             })
                 .then(response => {
-                    if (response.status !== 204) {
+                    if (response.status !== 204 || response.status !== 401) {
                         throw new Error()
                     }
 

@@ -44,7 +44,7 @@ export const useGeneralGet = () => {
                 setResponse(cat => {
                     return data
                 })
-            })
+            }).catch(error => {console.log(error)})
             
         } catch (error) {
             console.log(error)

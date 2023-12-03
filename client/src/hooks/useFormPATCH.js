@@ -49,7 +49,7 @@ export const useFormPATCH = () => {
                 
             })
         } catch (error) {
-            return
+            console.log(error)
         } finally {
             setLoading(false)
         }

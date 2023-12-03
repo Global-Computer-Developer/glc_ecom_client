@@ -64,7 +64,6 @@ const HeaderMain = ({showDpt, setShowDpt}) => {
     }
 
     useEffect(() => {
-        console.log([``,`search`, query])
         handleSearchProductGET(`product`, `/search/${query}`, 3, 1)
     }, [query])
 

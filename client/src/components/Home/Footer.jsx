@@ -51,9 +51,6 @@ const Footer = ({
         handleSideCatGET(`side-menu`)
     }, [])
 
-    useEffect(() => {
-        console.log(footerMenuShow)
-    },[footerMenuShow])
   
 return (
     <footer>
@@ -118,7 +115,7 @@ return (
                                 <article className="item mini-link flexcol gap-1 mobile-hide">
                                     <h4>Stay Connected</h4>
                                     <p>
-                                        <h1>Global Computer BD</h1>
+                                        <strong>Global Computer BD</strong>
                                         Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh. 
                                         <br />
                                         Get quality IT products and services delivered right to your location.

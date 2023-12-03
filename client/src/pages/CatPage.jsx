@@ -50,11 +50,6 @@ const CatPage = () => {
 
     }, [pageNumber, pathname])
 
-
-    useEffect(() => {
-        console.log(isStock)
-    }, [isStock])
-
     
 
 

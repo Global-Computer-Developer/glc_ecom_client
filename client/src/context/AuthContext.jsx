@@ -30,11 +30,18 @@ export const AuthProvider = ({children}) => {
                     "Content-type": "application/json",
                     "Authorization": "Token " + auth, 
                 }
-            })
-                .then(response => response.json())
+            })  
+                .then(response => {
+                    if(response.status == 401) {
+                        throw new Error()
+                    }
+                    else {
+                        response.json
+                    }
+                })
                 .then(data => {
                     setUser(data)
-                }).catch(error => console.log(error))
+                }).catch(error => localStorage.removeItem('glc_t'))
         }
     }
 
