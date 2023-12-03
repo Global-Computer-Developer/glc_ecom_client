@@ -115,7 +115,7 @@ return (
                                 <article className="item mini-link flexcol gap-1 mobile-hide">
                                     <h4>Stay Connected</h4>
                                     <p>
-                                        <strong>Global Computer BD</strong>
+                                        <strong>Global Computer BD</strong> <br />
                                         Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh. 
                                         <br />
                                         Get quality IT products and services delivered right to your location.

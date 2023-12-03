@@ -68,7 +68,7 @@ const Hoverable = ({
                 </button>
             </li>
             <li>
-                <CopyToClipboard text={'http://localhost:5173/product/'+product.slug}>
+                <CopyToClipboard text={`${import.meta.env.VITE_APP_URL}/product/`+product.slug}>
                     <button type='button' title='Share Link' onClick={() => {setCopy(true)}}>
                         <i className="ri-share-forward-line"></i>
                     </button>

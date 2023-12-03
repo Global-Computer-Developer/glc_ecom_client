@@ -33,3 +33,4 @@ jobs:
           VITE_LOGO_MINI: "global_mini.svg"
           VITE_LOGO_BIG_BNW: "global_big_bnw.svg"
           VITE_LOGO_BIG: "global_big.svg"
+          VITE_APP_URL: "http://134.209.97.214:5000"
