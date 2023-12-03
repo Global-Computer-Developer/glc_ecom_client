@@ -4895,9 +4895,14 @@ input[type="number"] {
 
 
 
-.header-sticky.mobile {
-  all: unset;
-}
+  .header-sticky.mobile {
+    all: unset;
+  }
+
+  .slider {
+    margin-bottom: 6em;
+  }
+
 
   /* mega menu */
 
