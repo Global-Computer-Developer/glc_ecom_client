@@ -6,7 +6,6 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import Button from '../Utilities/Button'
 import { useCartContext } from '../context/CartContext'
-import { useGeneralGet } from '../hooks/useGeneralGet'
 import { useGeneralPOST } from '../hooks/useGeneralPOST'
 import ErrorStatus from '../Utilities/ErrorStatus'
 import SuccessStatus from '../Utilities/SuccessStatus'
@@ -22,7 +21,6 @@ const CheckoutPage = () => {
     const [today, setToday] = useState()
     //  payment start
     
-    // const [user, handleUserGET] = useGeneralGet()
     const [loading, error, success, handleOrderPOST, orderRes] = useGeneralPOST()
 
     const navigate = useNavigate()
@@ -79,15 +77,15 @@ const CheckoutPage = () => {
             district: address != null && address.district && address.district,
             division: address != null && address.division && address.division,
             phone: user?.phone_number,
-            payment_method: 'cash on delivery',
+            payment_method: 'Cash on Delivery',
             order_note: '',
             orders: cartItem,
         },
         enableReinitialize: true,
         onSubmit: (values) => {
-            if (values.phone.length < 11) {
+            if (values.phone.length == 11) {
                 values.phone = '+880'+values.phone
-            }
+            } 
             handleOrderPOST(`order`,values, auth)
             localStorage.removeItem('cart')
             handleConfirm()
@@ -164,7 +162,6 @@ const CheckoutPage = () => {
                                         onBlur={formik.handleBlur}
                                         {...formik.getFieldHelpers('phone')}
                                     />
-                                    <span className='phone-code'>+880</span>
                                     {
                                         formik.errors.phone && formik.touched.phone &&
                                         <span className="required">{formik.errors.phone}</span>
@@ -182,10 +179,7 @@ const CheckoutPage = () => {
                                         {...formik.getFieldHelpers('order_note')}
                                     ></textarea>
                                 </p>
-                                {/* <p className='checkset'>
-                                    <input type="checkbox" name="anaccount" id="anaccount" />
-                                    <label className='not-text' htmlFor="anaccount">Create an account?</label>
-                                </p> */}
+                                
                                 <div className="shipping-methods">
                                     <h2>Shipping Methods</h2>
                                     <p className="checkset">
@@ -295,7 +289,7 @@ const CheckoutPage = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <ul className="products mini">
+                                <ul className="products">
                                     {
                                         cart &&
                                         cart.map(item => (

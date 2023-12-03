@@ -3302,9 +3302,6 @@ td[data-label='Quantity'] .qty-control{
   border-right: 1px solid var(--border-clr);
 }
 
-.checkout form input[type='phone'] {
-  padding-left: 7em;
-} 
 
 .primary-checkout button.primary-btn:disabled {
   background-color: var(--light-txt-clr);
@@ -3324,7 +3321,6 @@ td[data-label='Quantity'] .qty-control{
 }
 
 :where(.summary-totals, .summary-address) ul {
-  max-width: 335px;
   line-height: 2;
   padding-bottom: 0.5em;
 }
@@ -4805,10 +4801,6 @@ input[type="number"] {
     top: 6em;
   }
 
-  .checkout .item.right {
-    padding: 5em 0 0 5em;
-  }
-
   .product-form {
     gap: 0 5em;
   }
@@ -5156,8 +5148,12 @@ input[type="number"] {
 }
 
 
-:where(.checkout, .signup, .login) .item {
+:where(.signup, .login) .item {
   flex: 0 0 50%;
+}
+
+.checkout .item {
+  flex: 1 1 50%;
 }
 
 
