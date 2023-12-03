@@ -72,16 +72,16 @@ function App() {
   const {user, onAuth} = useAuthContext()
 
 
-  useEffect(() => {
-    const hideDpt = () => {
-      setShowDpt(false)
-    }
-    window.addEventListener('scroll', hideDpt)
+  // useEffect(() => {
+  //   const hideDpt = () => {
+  //     setShowDpt(false)
+  //   }
+  //   window.addEventListener('scroll', hideDpt)
 
-    return () => {
-      window.removeEventListener('scroll', hideDpt)
-    }
-  },[showDpt])
+  //   return () => {
+  //     window.removeEventListener('scroll', hideDpt)
+  //   }
+  // },[showDpt])
 
   useEffect(() => {
 
