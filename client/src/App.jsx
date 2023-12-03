@@ -176,7 +176,7 @@ function App() {
             <Route path='/policies' element={<PoliciesPage />}></Route>
 
             {
-              user.length == 0 &&
+              (user != 'undefined' || user.length == 0) &&
               <>
                 <Route path='/signup' element={<SignUp />}></Route>
                 <Route path='/login' element={<Login />}></Route>              

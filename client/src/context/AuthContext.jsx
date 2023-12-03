@@ -36,12 +36,14 @@ export const AuthProvider = ({children}) => {
                         throw new Error()
                     }
                     else {
-                        response.json
+                        response.json().then(data => {
+                            setUser(data)
+                        })
                     }
                 })
-                .then(data => {
-                    setUser(data)
-                }).catch(error => localStorage.removeItem('glc_t'))
+                .catch(error => {
+                    localStorage.removeItem('glc_t')
+                })
         }
     }
 

@@ -220,13 +220,13 @@ return (
                             </li>
                             <li>
                                 <NavLink
-                                    to={(auth && auth != undefined) ? `/profile/${user.username}/info` : `/login`} 
+                                    to={(auth && auth != undefined) ? `/profile/${user != `undefined` && user.username}/info` : `/login`} 
                                     onClick={() => {
                                         setShowCart(false)
                                         setShowSearch(false)
                                 }}
                                 >
-                                    <i className={`ri-user-4-${pathname === `/profile/${user.username}/info` || pathname === '/login' ? `fill`: `line`}`}></i>
+                                    <i className={`ri-user-4-${pathname === `/profile/${user != `undefined` && user.username}/info` || pathname === '/login' ? `fill`: `line`}`}></i>
                                     <span>Account</span>
                                 </NavLink>
                             </li>
