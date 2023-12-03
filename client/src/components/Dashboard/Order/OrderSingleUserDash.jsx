@@ -51,6 +51,10 @@ const OrderSingleUserDash = () => {
                             <td data-label='User'>{`${(orderRes?.user)}`}</td>
                         </tr>
                         <tr>
+                            <td>Contact No.</td>
+                            <td data-label='User'>{`${(orderRes?.phone)}`}</td>
+                        </tr>
+                        <tr>
                             <td>Order Date</td>
                             <td data-label='Date'>{`${(orderRes?.date)}`}</td>
                         </tr>

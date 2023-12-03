@@ -165,7 +165,7 @@ function App() {
 
             <Route path='/checkout' element={<CheckoutPage />}></Route>
 
-            <Route path='/confirmation' element={<OrderConfirmPage />}></Route>
+            <Route path='/order-confirm/:slug' element={<OrderConfirmPage />}></Route>
 
             <Route path='/contact' element={<ContactUs />}></Route>
 

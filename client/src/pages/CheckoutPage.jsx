@@ -45,14 +45,6 @@ const CheckoutPage = () => {
     }, [])
 
 
-
-    const handleConfirm = () => {
-        setTimeout(() => {
-            formik.resetForm()
-            navigate('/confirmation', {state: order})            
-        }, 5000);
-    }
-
     const address = JSON.parse(sessionStorage.getItem('address'))
     
     const handleCheckAddressData = () => {
@@ -88,12 +80,11 @@ const CheckoutPage = () => {
             } 
             handleOrderPOST(`order`,values, auth)
             localStorage.removeItem('cart')
-            handleConfirm()
             
         },
         validationSchema: Yup.object({
             total: Yup.string(),
-            phone: Yup.string('enter only numbers!').min(10),
+            phone: Yup.string('enter only numbers!').min(10).required('enter a contact no.'),
             order_note: Yup.string(),
             district: Yup.string(),
             division: Yup.string(),
