@@ -9,6 +9,7 @@ import { useGeneralDEL } from '../../../hooks/useGeneralDEL'
 import DelStatus from '../../../Utilities/DelStatus'
 import { useAuthContext } from '../../../context/AuthContext'
 import NoItem from '../../../Utilities/NoItem'
+import Loading from '../../../Utilities/Loading'
 
 
 const SpecificationTable = () => {
@@ -18,7 +19,7 @@ const SpecificationTable = () => {
     const [size, setSize] = useState(3)
     const [page, setPage] = useState(parseInt(searchQuery.get('page')))
 
-    const [response, handleSpecs] = useGeneralGet()
+    const [response, handleSpecs, loading] = useGeneralGet()
     const [delStatus, handleDelTables] = useGeneralDEL()
 
 
@@ -46,62 +47,68 @@ const SpecificationTable = () => {
     <DelStatus delStatus={delStatus} />
 
     <div className="dash-table__container">
-
-        <table className="dash-table">
-            <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Thumbnail</th>
-                    <th>#Specs Tables</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    response && response?.results.length !== 0 &&
-                    response?.results.map(item => (
-
-                        <tr key={item.id} id={item.id}>
-                            <td >
-                                <Link to={`/dashboard/specification/edit/${item.id}`}>
-                                    <span>
-                                        {item.title}
-                                    </span>
-                                </Link>
-                            </td>
-                            <td data-label='Thumbnail'>
-                                <img className='thumbnail' src={item.images[0].image} alt={item.title} loading='lazy' />
-                            </td>
-                            <td data-label='#Specs Tables'>
-                                <ul>
-                                {
-                                    item.specification.length != 0 ?
-                                    item?.specification.map(spec => (
-                                        <li 
-                                            key={spec.table_name}
-                                            className='medium-text'
-                                        >
-                                            {spec.table_name}
-                                        </li>
-                                    ))
-                                    :
-                                    <span className='medium-text'>No table been added</span>
-                                }
-                                </ul>
-
-                            </td>
-                            <td data-label='Delete'>
-                                <ButtonClose onClick={() => {handleDelTables(`specification`, item.id, auth)}} />
-                            </td>
+        <h2>Specification List</h2>
+        <Loading loading={loading} />
+        {
+            loading == false &&
+                <table className="dash-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Thumbnail</th>
+                            <th>#Specs Tables</th>
+                            <th>Delete</th>
                         </tr>
-                    ))
-                }
-                
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        {
+                            response && response?.results.length !== 0 &&
+                            response?.results.map(item => (
+
+                                <tr key={item.id} id={item.id}>
+                                    <td >
+                                        <Link to={`/dashboard/specification/edit/${item.id}`}>
+                                            <span>
+                                                {item.title}
+                                            </span>
+                                        </Link>
+                                    </td>
+                                    <td data-label='Thumbnail'>
+                                        <img className='thumbnail' src={item.images[0].image} alt={item.title} loading='lazy' />
+                                    </td>
+                                    <td data-label='#Specs Tables'>
+                                        <ul>
+                                        {
+                                            item.specification.length != 0 ?
+                                            item?.specification.map(spec => (
+                                                <li 
+                                                    key={spec.table_name}
+                                                    className='medium-text'
+                                                >
+                                                    {spec.table_name}
+                                                </li>
+                                            ))
+                                            :
+                                            <span className='medium-text'>No table been added</span>
+                                        }
+                                        </ul>
+
+                                    </td>
+                                    <td data-label='Delete'>
+                                        <ButtonClose onClick={() => {handleDelTables(`specification`, item.id, auth)}} />
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                        
+                    </tbody>
+                </table>
+        }
+        
+        {loading == false && response && response.results.length == 0 && <NoItem />}
+
     </div> 
 
-    {response && response.results.length == 0 && <NoItem />}
 
     <PaginationProduct 
         response={response}

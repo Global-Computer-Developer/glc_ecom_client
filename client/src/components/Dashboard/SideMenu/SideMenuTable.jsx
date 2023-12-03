@@ -7,11 +7,12 @@ import ButtonClose from '../../../Utilities/ButtonClose'
 import DelStatus from '../../../Utilities/DelStatus'
 import { useAuthContext } from '../../../context/AuthContext'
 import NoItem from '../../../Utilities/NoItem'
+import Loading from '../../../Utilities/Loading'
 
 
 const SideMenuTable = () => {
 
-    const [response, handleSideMenu] = useGeneralGet()
+    const [response, handleSideMenu, loading] = useGeneralGet()
     const [delStatus, handleDelSideMenu] = useGeneralDEL()
 
     const { auth } = useAuthContext()
@@ -30,51 +31,56 @@ const SideMenuTable = () => {
 
     <DelStatus delStatus={delStatus} />
     <div className="dash-table__container">
-
-        <table className="dash-table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Query</th>
-                    <th>Sub Side Menu</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    response && response.length !== 0 &&
-                    response.map(item => (
-
-                        <tr key={item.id} id={item.id}>
-                            <td>
-                                <Link className='flexitem gap-1' to={`/dashboard/side-menu/edit/${item.slug}`}>
-                                    <span className={`ri-${item?.logo}`}></span>
-                                    <span>{item.title}</span>
-                                </Link>
-                            </td>
-                            <td>{item.query}</td>
-                            <td>
-                                <ul>
-                                {
-                                    item.sub_side_menu.length != 0 &&
-                                    item.sub_side_menu.map(menu => (
-                                        <li key={menu.id}>{menu.name}</li>
-                                    ))
-                                
-                                }
-                                </ul>
-                            </td>
-                            <td data-label='Delete'>
-                                <ButtonClose onClick={() => {handleDelSideMenu(`side-menu`, item.slug, auth)}} />
-                            </td>
+        <h2>Side Menu List</h2>
+        <Loading loading={loading} />
+        {
+            loading == false &&
+                <table className="dash-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Query</th>
+                            <th>Sub Side Menu</th>
+                            <th>Delete</th>
                         </tr>
-                    ))
-                }
-                
-            </tbody>
-        </table> 
+                    </thead>
+                    <tbody>
+                        {
+                            response && response.length !== 0 &&
+                            response.map(item => (
+
+                                <tr key={item.id} id={item.id}>
+                                    <td>
+                                        <Link className='flexitem gap-1' to={`/dashboard/side-menu/edit/${item.slug}`}>
+                                            <span className={`ri-${item?.logo}`}></span>
+                                            <span>{item.title}</span>
+                                        </Link>
+                                    </td>
+                                    <td>{item.query}</td>
+                                    <td>
+                                        <ul>
+                                        {
+                                            item.sub_side_menu.length != 0 &&
+                                            item.sub_side_menu.map(menu => (
+                                                <li key={menu.id}>{menu.name}</li>
+                                            ))
+                                        
+                                        }
+                                        </ul>
+                                    </td>
+                                    <td data-label='Delete'>
+                                        <ButtonClose onClick={() => {handleDelSideMenu(`side-menu`, item.slug, auth)}} />
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                        
+                    </tbody>
+                </table> 
+        }
+
+        {loading == false && response && response.length == 0 && <NoItem />}
     </div>
-    {response && response.length == 0 && <NoItem />}
 
     </>
 
