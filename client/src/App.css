@@ -4052,6 +4052,11 @@ dialog::backdrop {
 .feature-list span:first-child {
   font-weight: var(--fw-600);
   text-transform: capitalize;
+  text-align: left;
+}
+
+.feature-list span {
+  flex: 1 1 50%;
 }
 
 .feature-list {
