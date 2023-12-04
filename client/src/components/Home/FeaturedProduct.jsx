@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import FeaturedCard from './FeaturedCard'
-import { offerProduct } from '../../data'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../../context/CartContext'
 import { useGeneralGet } from '../../hooks/useGeneralGet'
 
 const FeaturedProduct = () => {
@@ -11,7 +9,7 @@ const FeaturedProduct = () => {
 
 
     useEffect(() => {
-        handleFeaturedGET(`product`,``,``,1,12,``,``,1,``,1) // no of item to show is '12' of page 1
+        handleFeaturedGET(`product`,``,``,1,18,``,``,1,``,1) // no of item to show is '18' of page 1
     },[])
 
   return (
