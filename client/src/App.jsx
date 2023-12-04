@@ -72,17 +72,6 @@ function App() {
   const {user, onAuth} = useAuthContext()
 
 
-  // useEffect(() => {
-  //   const hideDpt = () => {
-  //     setShowDpt(false)
-  //   }
-  //   window.addEventListener('scroll', hideDpt)
-
-  //   return () => {
-  //     window.removeEventListener('scroll', hideDpt)
-  //   }
-  // },[showDpt])
-
   useEffect(() => {
 
     // show sub menu on mobile
@@ -157,7 +146,7 @@ function App() {
             <Route path='/menu/:name/:code/:brand/:page' element={<CatPage />}></Route>
             <Route path='/search/:query/:page' element={<CatPage />}></Route>
             <Route path='/featured/:page' element={<CatPage />}></Route>
-            {/* <Route path='/related' element={<CatPage />}></Route> */}
+
 
             <Route path='/wishlist' element={<WishlistPage />}></Route>
 

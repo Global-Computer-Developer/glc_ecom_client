@@ -1349,7 +1349,7 @@ form.search button:hover{
 text
 
 .item .footer li span,
-.medium-text li span:last-child,
+.medium-text li span,
 .item-content :where(a, p){
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1360,12 +1360,15 @@ text
   color: var(--dark-clr); 
 }
 
-.item .footer li span:first-child {
-  width: 20%;
+.item .footer li span {
+  -webkit-line-clamp: 2;
 }
-.item .footer li span:last-child {
-  width: 80%;
+
+.item .footer li {
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--border-clr);
 }
+
 
 
 
@@ -1577,7 +1580,6 @@ text
 
 .products.main .footer {
   position: absolute;
-  bottom: -80px;
   left: 0;
   right: 0;
   padding: 0 1em 1em;
