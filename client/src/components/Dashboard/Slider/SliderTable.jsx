@@ -32,7 +32,7 @@ const SliderTable = () => {
                 <table className="dash-table">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>Slider Url</th>
                             <th>Slider Image</th>
                             <th>Mini Text</th>
                             <th>Middle Text</th>
@@ -47,11 +47,11 @@ const SliderTable = () => {
                                 <tr key={item.id} id={item.id}>
                                     <td>
                                         <Link to={`/dashboard/slider/edit/${item.id}`}>
-                                            <span>{item.product.title}</span>
+                                            <span>{item.slider_url}</span>
                                         </Link>
                                     </td>
                                     <td data-label='Slider Image'>
-                                        <img className='thumbnail' src={item.image} alt={item.product} />
+                                        <img className='thumbnail' src={item.image} loading='lazy'/>
                                     </td>
                                     <td data-label='Mini Text'>
                                         {item.mini_text}

@@ -1,9 +1,7 @@
 import { useFormik } from 'formik'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import * as Yup from 'yup'
 import Button from '../../../Utilities/Button'
-import { useLocation } from 'react-router-dom'
-import { useGeneralGet } from '../../../hooks/useGeneralGet'
 import { useFormPOST } from '../../../hooks/useFormPOST'
 import SuccessStatus from '../../../Utilities/SuccessStatus'
 import ErrorStatus from '../../../Utilities/ErrorStatus'
@@ -15,18 +13,8 @@ const SliderAddForm = () => {
 
     const {auth} = useAuthContext()
 
-    const {pathname} = useLocation()
-
-    const [product, handleProduct] = useGeneralGet()
-    const [category, handleCategory] = useGeneralGet()
     const [loading, error, success, handleSlider] = useFormPOST()
 
-
-    useEffect(() => {
-       
-        handleCategory(`category`,``,`title`)
-
-    }, [pathname])
 
 
     
@@ -54,8 +42,7 @@ const SliderAddForm = () => {
     // add form formik
     const formik = useFormik({
         initialValues: {
-            category_id: '',
-            product_id: '',
+            slider_url: '',
             mini_text: '',
             mid_text: '',
             color: '',
@@ -73,8 +60,7 @@ const SliderAddForm = () => {
             
         },
         validationSchema: Yup.object({
-            category_id: Yup.string().required("enter category!"),
-            product_id: Yup.string().required("enter product!"),
+            slider_url: Yup.string().required("enter slider url!"),
             mini_text: Yup.string(),
             mid_text: Yup.string(),
             color: Yup.string(),
@@ -89,10 +75,6 @@ const SliderAddForm = () => {
     })
 
 
-    useEffect(() => {
-        handleProduct(`product`, ``, `title`,``,``,``,``,``,``,``,``,``,formik.values.category_id)
-    }, [formik.values.category_id])
-
 
     useEffect(() => {
         if (success || error) {
@@ -105,55 +87,26 @@ const SliderAddForm = () => {
     <form className="add-form styled" onSubmit={formik.handleSubmit}>
         <h2>Add Slider</h2>
         <p>
-            <label htmlFor="category_id">Category <span></span></label>
-            <select 
-                name="category_id" 
-                id="category_id" 
-                value={formik.values.category_id}
+            <label htmlFor="slider_url">Slider URL</label>
+            <input 
+                type="text" 
+                name="slider_url" 
+                id="slider_url" 
+                placeholder='e.g. /category/processor'
+                value={formik.values.slider_url}
                 onChange={formik.handleChange}
-            >
-                <option value="" disabled hidden selected>Select Category</option>
-                {
-                    category &&
-                    category.map(item => (
-                        <option key={item.id} value={item.id}>{item.title}</option>
-                    ))
-                }
-            </select>
+                onBlur={formik.handleBlur}
+            />
             {
-                formik.errors.category_id && formik.touched.category_id &&
-                <span className="required">{formik.errors.category_id}</span>
+                formik.errors.slider_url && formik.touched.slider_url &&
+                <span className="required">{formik.errors.slider_url}</span>
             }
             {
-                error?.category_id &&
-                <span className="required">{error.category_id}</span>
+                error?.slider_url &&
+                <span className="required">{error.slider_url}</span>
             }
         </p>
-        <p>
-            <label htmlFor="product_id">Product <span></span></label>
-            <select 
-                name="product_id" 
-                id="product_id" 
-                value={formik.values.product_id}
-                onChange={formik.handleChange}
-            >
-                <option value="" disabled hidden selected>Select product</option>
-                {
-                    product &&
-                    product.map(item => (
-                        <option key={item.id} value={item.id}>{item.title}</option>
-                    ))
-                }
-            </select>
-            {
-                formik.errors.product_id && formik.touched.product_id &&
-                <span className="required">{formik.errors.product_id}</span>
-            }
-            {
-                error?.product_id &&
-                <span className="required">{error.product_id}</span>
-            }
-        </p>
+        
         <p>
             <label htmlFor="mini_text">Slider Mini Text</label>
             <input 

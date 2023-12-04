@@ -40,30 +40,34 @@ const Slider = () => {
                             sliderRes.map(item => (
                                 <SwiperSlide key={item.id}>
                                     <div className="item">
+                                    {
+                                        (item.mini_text || item.mid_text) &&
+                                            <span className='before'></span>
+                                    }
                                         <div className="image object-cover">
-                                            <img
-                                                src={item?.image} 
-                                                alt={item?.product.slug}
+                                            <Link to={`${import.meta.env.VITE_APP_URL}${item.slider_url}`}>
+                                                <img
+                                                    src={item?.image} 
+                                                    loading='lazy'
                                                 />
-                                        </div>
-                                        <div 
-                                            className="text-content flexcol"
-                                            style={{color: `${item?.color ? `#fff`:`#0a021c`}`}}
-                                        >
-                                            <h4>{item.category}</h4>
-                                            <h2>
-                                                <span>{item?.mini_text} <br /> 
-                                                </span>
-                                                <span>
-                                                    {item?.mid_text}
-                                                </span>
-                                            </h2>
-                                            <Link to={`/product/${item.product.slug}`} className="primary-btn flexitem gap-1">
-                                                <span>Shop Now</span>
-                                                <span className='ri-arrow-right-line'></span>
                                             </Link>
                                         </div>
+                                        
+                                                <div 
+                                                    className="text-content flexcol"
+                                                    style={{color: `${item?.color ? `#fff`:`#0a021c`}`}}
+                                                >
+                                                    <h2>
+                                                        <span>{item?.mini_text} <br /> 
+                                                        </span>
+                                                        <span>
+                                                            {item?.mid_text}
+                                                        </span>
+                                                    </h2>
+                                                </div>
+                                        
                                     </div>
+
                                 </SwiperSlide>
                             ))
                         }
