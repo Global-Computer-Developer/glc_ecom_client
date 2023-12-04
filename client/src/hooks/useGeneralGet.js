@@ -22,7 +22,7 @@ export const useGeneralGet = () => {
                 + `${page ? `${order ? '&' : '?'}page=${page}` : ''}` 
                 + `${size ? `${order || page ? '&' : '?'}size=${size}` : ''}` 
                 + `${category_slug ? `${order || page || size ? '&' : '?'}category__slug=${category_slug}` : ''}` 
-                + `${status ? `${order || page || size || category_slug ? '&' : '?'}status=${status}` : ''}` 
+                + `${status ? `${order || page || size || category_slug ? '&' : '?'}is_stock=${status}` : ''}` 
                 + `${offered ? `${order || page || size || category_slug || status ? '&' : '?'}offered=${offered}` : ''}`  
                 + `${featured ? `${order || page || size || category_slug || status || offered ? '&' : '?'}featured=${featured}` : ''}` 
                 + `${product_slug ? `${order || page || size || category_slug || status || offered || featured ? '&' : '?'}product__slug=${product_slug}` : ''}` 
