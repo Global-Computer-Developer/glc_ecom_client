@@ -1360,11 +1360,6 @@ text
   color: var(--dark-clr); 
 }
 
-.item .footer li span {
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 .item .footer li span {
   flex: 1 1 50%;
