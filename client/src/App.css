@@ -1399,6 +1399,10 @@ text
   border-width: 1px 0;
 }
 
+.item .footer li span:first-child{
+  text-align: left;
+}
+
 .item .footer li span:last-child{
   text-align: right;
   padding-left: 0.5em;
