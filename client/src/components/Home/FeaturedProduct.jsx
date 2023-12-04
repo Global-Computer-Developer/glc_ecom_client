@@ -9,7 +9,8 @@ const FeaturedProduct = () => {
 
 
     useEffect(() => {
-        handleFeaturedGET(`product`,``,``,1,18,``,``,1,``,1) // no of item to show is '18' of page 1
+                        // name, id, order, page, size, category_slug, token, status, offered, featured,
+        handleFeaturedGET(`product`,``,``,1,18,``,``,`true`,``,1) // no of item to show is '18' of page 1
     },[])
 
   return (
