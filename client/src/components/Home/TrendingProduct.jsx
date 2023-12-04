@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import TrendingCardMini from './TrendingCardMini'
 import BigTrendingCard from './BigTrendingCard'
 import { useGeneralGet } from '../../hooks/useGeneralGet'
+import { Link } from 'react-router-dom'
 
 const TrendingProduct = () => {
 
@@ -10,7 +11,7 @@ const TrendingProduct = () => {
 
 
     useEffect(() => {
-        handleOfferedProductGET(`product`,``,``,1,8,``,``,1,`1`)
+        handleOfferedProductGET(`product`,``,``,1,6,``,``,1,`1`)
         handleProductBigGET(`product`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, `true`)
     }, [])
 
@@ -20,7 +21,15 @@ const TrendingProduct = () => {
         <div className="container">
             <div className="wrapper">
                 <div className="sectop flexitem">
-                    <h2>Trending Products</h2>
+                    <h2>
+                        Trending Products
+                    </h2>
+                    <div className="main-link view-all">
+                        <Link to={`/trending/1`} className='flexitem'>
+                            <span>View all</span>
+                            <span className="ri-arrow-right-line"></span>
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="column">

@@ -146,6 +146,7 @@ function App() {
             <Route path='/menu/:name/:code/:brand/:page' element={<CatPage />}></Route>
             <Route path='/search/:query/:page' element={<CatPage />}></Route>
             <Route path='/featured/:page' element={<CatPage />}></Route>
+            <Route path='/trending/:page' element={<CatPage />}></Route>
 
 
             <Route path='/wishlist' element={<WishlistPage />}></Route>

@@ -20,6 +20,10 @@ export const useSearchQuery = () => {
                 url += `?featured=true`
             }
 
+            if (fields.length != 0 && fields[1] == 'trending') {
+                url += `?offered=true`
+            }
+
             if (fields.length != 0 && fields[1] == 'category') {
                 url += `?category__slug=${fields[2]}`
             }
