@@ -1019,21 +1019,9 @@ form.search button:hover{
 .slider .item {
   position: relative;
   width: 100%;
-  aspect-ratio: calc(4 / 2);
+  aspect-ratio: calc(16 / 9);
 }
 
-.slider .item span.before {
-  content: '';
-  position: absolute;
-  top: 30%;
-  left: 0;
-  width: 450px;
-  height: 300px;
-  background-color: var(--dark-clr);
-  z-index: 1;
-  filter: blur(50px);
-  opacity: 0.85;
-}
 
 .slider .item .image {
   height: 100%;
@@ -1041,19 +1029,16 @@ form.search button:hover{
   
 }
 
-.slider .item .image > img {
-  height: 474px;
-  object-fit: cover;
-}
 
 
 .slider .text-content {
+  --padding-slider: calc(3em + 1vw);
   position: absolute;
   top: 0;
   height: var(--percent-100);
   justify-content: flex-end;
   color: var(--white-clr);
-  padding: 0 0 10% 10%;
+  padding: 0 0 var(--padding-slider) var(--padding-slider);
   z-index: 1; 
 }
 
@@ -1069,15 +1054,17 @@ form.search button:hover{
 
 .text-content :where(h2, h3) span:first-child {
   font-weight: var(--fw-300);
-  columns: var(--light-txt-clr);
-  font-size: 0.675em;
+  font-size: calc(0.4em + 0.3vw);
 }
 
 .text-content :where(h2, h3) span:last-child {
-  /* text-transform: uppercase; */
   font-weight: var(--fw-700);
   letter-spacing: -1px;
-  font-size: 0.875em;
+  font-size: calc(0.5em + 0.5vw);
+}
+
+.text-content h2.flexcol {
+  gap: 0.25em;
 }
 
 /* swiper js css */

@@ -26,7 +26,7 @@ const Slider = () => {
                     <Swiper 
                         loop={true}
                         autoplay={{
-                            delay: 4500,
+                            delay: 3000,
                             disableOnInteraction: false,
                         }}
                         pagination={{
@@ -40,10 +40,6 @@ const Slider = () => {
                             sliderRes.map(item => (
                                 <SwiperSlide key={item.id}>
                                     <div className="item">
-                                    {
-                                        (item.mini_text || item.mid_text) &&
-                                            <span className='before'></span>
-                                    }
                                         <div className="image object-cover">
                                             <Link to={`${import.meta.env.VITE_APP_URL}${item.slider_url}`}>
                                                 <img
@@ -52,20 +48,27 @@ const Slider = () => {
                                                 />
                                             </Link>
                                         </div>
-                                        
-                                                <div 
-                                                    className="text-content flexcol"
-                                                    style={{color: `${item?.color ? `#fff`:`#0a021c`}`}}
-                                                >
-                                                    <h2>
-                                                        <span>{item?.mini_text} <br /> 
-                                                        </span>
-                                                        <span>
-                                                            {item?.mid_text}
-                                                        </span>
-                                                    </h2>
-                                                </div>
-                                        
+                                            <div 
+                                                className="text-content flexcol"
+                                                style={{color: `${item?.color ? `#fff`:`#0a021c`}`}}
+                                            >
+                                                <h2 className='flexcol'>
+                                                    <span>{item?.mini_text} 
+                                                    </span>
+                                                    <span>
+                                                        {item?.mid_text}
+                                                    </span>
+                                                </h2>
+                                                {
+                                                    (item.mini_text || item.mid_text) &&
+                                                    <button 
+                                                        type='button'
+                                                        className='primary-btn'
+                                                    >
+                                                        Shop Now
+                                                    </button>
+                                                }
+                                            </div>
                                     </div>
 
                                 </SwiperSlide>
