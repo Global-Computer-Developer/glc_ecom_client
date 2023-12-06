@@ -10,6 +10,7 @@ import HeaderNavMobile from './components/Home/HeaderNavMobile'
 import { CartProvider } from './context/CartContext'
 import { useAuthContext } from './context/AuthContext'
 import Loading from './Utilities/Loading'
+import LoadingFull from './Utilities/LoadingFull'
 
 
 // page import
@@ -123,10 +124,11 @@ function App() {
     <div 
       className={`app ${showMenu ? `showmenu`: ``} ${showSearch ? `showsearch`: ``} ${showDpt ? `showdpt`: ``}`}
     >
-      <Suspense fallback={<Loading loading={true} />}>
+      <Suspense fallback={<LoadingFull loading={true} />}>
       
 
       <CartProvider>
+
         {
           pathname !== '/signup' && pathname !== '/login' && pathname.slice(0,10) !== '/dashboard' &&
           <>
