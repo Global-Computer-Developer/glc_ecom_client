@@ -3,11 +3,12 @@ import TrendingCardMini from './TrendingCardMini'
 import BigTrendingCard from './BigTrendingCard'
 import { useGeneralGet } from '../../hooks/useGeneralGet'
 import { Link } from 'react-router-dom'
+import Loading from '../../Utilities/Loading'
 
 const TrendingProduct = () => {
 
-    const [offeredProduct, handleOfferedProductGET] = useGeneralGet()
-    const [productBig, handleProductBigGET] = useGeneralGet()
+    const [offeredProduct, handleOfferedProductGET, loadingOfferProduct] = useGeneralGet()
+    const [productBig, handleProductBigGET, loadingBigProduct] = useGeneralGet()
 
 
     useEffect(() => {
@@ -34,7 +35,10 @@ const TrendingProduct = () => {
 
                 <div className="column">
                     <div className="flexwrap">
+                        <Loading loading={loadingBigProduct} />
+
                         {
+                            loadingBigProduct == false &&
                             productBig &&
                             productBig[0] != undefined &&
                             <BigTrendingCard 
@@ -45,8 +49,10 @@ const TrendingProduct = () => {
                         {/* mini card */}
                         <div className="row products mini">
                             <div className='products-mini-content'>
+                                <Loading loading={loadingOfferProduct} />
 
-                                {   
+                                {    
+                                    loadingOfferProduct == false &&
                                     offeredProduct &&
                                     offeredProduct.results != undefined &&
                                     offeredProduct.results.map(product => (

@@ -5,12 +5,13 @@ import RelatedProduct from '../components/Product Page/RelatedProduct'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useGeneralGet } from '../hooks/useGeneralGet'
+import Loading from '../Utilities/Loading'
 
 
 const ProductPage = () => {
 
   const {id} = useParams()
-  const [product, handleProductGET] = useGeneralGet()
+  const [product, handleProductGET, loading] = useGeneralGet()
 
   
 
@@ -46,6 +47,7 @@ const ProductPage = () => {
           {
             product &&
             <div className="wrapper">
+                <Loading loading={loading} />
                 <ProductPageHeader 
                   productCat={product.category} 
                   productTitle={product.title}

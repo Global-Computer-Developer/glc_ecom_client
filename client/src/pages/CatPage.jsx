@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import FilterBlock from '../components/CatPage/FilterBlock'
 import FeaturedCard from '../components/Home/FeaturedCard'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
@@ -9,6 +9,7 @@ import PaginationProduct from '../Utilities/PaginationProduct'
 import { useSearchQuery } from '../hooks/useSearchQuery'
 import NoItem from '../Utilities/NoItem'
 import DoubleRangeInput from '../Utilities/DoubleRangeInput'
+import Loading from '../Utilities/Loading'
 
 const CatPage = () => {
     const [filterShow, setFilterShow] = useState(false)
@@ -26,7 +27,7 @@ const CatPage = () => {
     const [isStock, setIsStock] = useState(false)
     const [notStock, setNotStock] = useState(false)
 
-    const [searchProduct, handleSearchProductGET] = useSearchQuery()
+    const [searchProduct, handleSearchProductGET, loading] = useSearchQuery()
     const [minProduct, handleMinProductGET] = useSearchQuery()
     const [maxProduct, handleMaxProductGET] = useSearchQuery()
 
@@ -63,6 +64,7 @@ const CatPage = () => {
 
   return (
     <>
+    <Suspense fallback={`loading`}>
     {
         cat &&
         cat.length != 0 &&
@@ -224,6 +226,7 @@ const CatPage = () => {
 
                                 {/* featured products */}
                                 <div className="products main flexwrap">
+                                    <Loading loading={loading} />
                                     {
                                         searchProduct &&
                                         searchProduct != undefined &&
@@ -237,7 +240,8 @@ const CatPage = () => {
                                     } 
                                 </div>
 
-                                {
+                                {   
+                                    loading == false &&
                                     searchProduct && 
                                     (searchProduct.results == undefined ||
                                     searchProduct.results.length == 0) &&
@@ -260,6 +264,7 @@ const CatPage = () => {
             <div className="overlay desktop-hide" onClick={() => {setFilterShow(false)}}></div>
         </div>
     </section>
+    </Suspense>
     </>
   )
 }

@@ -23,6 +23,7 @@ const Slider = () => {
         <div className="slider">
             <div className="container">
                 <div className="wrapper">
+
                     <Swiper 
                         loop={true}
                         autoplay={{

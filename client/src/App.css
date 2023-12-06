@@ -231,7 +231,7 @@ form label.not-text {
 }
 
 .second-link a:hover {
-  color: var(--light-txt-clr);
+  color: var(--secondary-clr);
 }
 
 .icon-small, .icon-large {

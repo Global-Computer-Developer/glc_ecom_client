@@ -1,64 +1,85 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, lazy, Suspense } from 'react'
 import './App.css'
 import Header from './components/Home/Header'
 import SideNav from './components/Home/SideNav'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import Home from './pages/Home'
 import Footer from './components/Home/Footer'
 import HeaderMain from './components/Home/HeaderMain'
-import ProductPage from './pages/ProductPage'
-import Banner from './components/Home/Banner'
-import CatPage from './pages/CatPage'
-import CartPage from './pages/CartPage'
-import CheckoutPage from './pages/CheckoutPage'
 import ScrollToTop from './components/Home/ScrollToTop'
 import HeaderNavMobile from './components/Home/HeaderNavMobile'
-import OrderConfirmPage from './pages/OrderConfirmPage'
-import WishlistPage from './pages/WishlistPage'
 import { CartProvider } from './context/CartContext'
-import SignUp from './pages/SignUp'
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
-import DashboardDash from './components/Dashboard/DashboardDash'
-import CategoryDash from './components/Dashboard/Category/CategoryDash'
-import BrandDash from './components/Dashboard/Brand/BrandDash'
-import CategoryAddForm from './components/Dashboard/Category/CategoryAddForm'
-import CategoryTable from './components/Dashboard/Category/CategoryTable'
-import CategoryEditDash from './components/Dashboard/Category/CategoryEditDash'
-import BrandTable from './components/Dashboard/Brand/BrandTable'
-import BrandAddForm from './components/Dashboard/Brand/BrandAddForm'
-import BrandEditDash from './components/Dashboard/Brand/BrandEditForm'
-import ProductDash from './components/Dashboard/Product/ProductDash'
-import ProductTable from './components/Dashboard/Product/ProductTable'
-import SideMenuDash from './components/Dashboard/SideMenu/SideMenuDash'
-import SideMenuTable from './components/Dashboard/SideMenu/SideMenuTable'
-import SideMenuAddForm from './components/Dashboard/SideMenu/SideMenuAddForm'
-import SideMenuEditDash from './components/Dashboard/SideMenu/SideMenuEditForm'
-import ProductAddForm from './components/Dashboard/Product/ProductAddForm'
-import ProductEditDash from './components/Dashboard/Product/ProductEditDashForm'
-import KeyFeatureDash from './components/Dashboard/KeyFeature/KeyFeatureDash'
-import KeyFeatureTable from './components/Dashboard/KeyFeature/KeyFeatureTable'
-import KeyFeatureEditDash from './components/Dashboard/KeyFeature/KeyFeatureEditDash'
-import SpecificationDash from './components/Dashboard/Specification/SpecificationDash'
-import SpecificationTable from './components/Dashboard/Specification/SpecificationTable'
-import SpecificationEditDash from './components/Dashboard/Specification/SpecificationEditDash'
-import SliderDash from './components/Dashboard/Slider/SliderDash'
-import SliderTable from './components/Dashboard/Slider/SliderTable'
-import SliderAddForm from './components/Dashboard/Slider/SliderAddForm'
-import SliderEditDash from './components/Dashboard/Slider/SliderEditDash'
-import OrderDash from './components/Dashboard/Order/OrderDash'
-import OrderTable from './components/Dashboard/Order/OrderTable'
-import OrderSingleUserDash from './components/Dashboard/Order/OrderSingleUserDash'
-import Profile from './pages/Profile'
-import ProfileInfo from './components/ProfilePage/ProfileInfo'
-import ProfileOrder from './components/ProfilePage/ProfileOrder'
 import { useAuthContext } from './context/AuthContext'
-import QuickView from './components/Modal/QuickView'
-import ContactUs from './pages/ContactUs'
-import AboutPage from './pages/AboutPage'
-import CareerPage from './pages/CareerPage'
-import PoliciesPage from './pages/PoliciesPage'
-import NoPage from './pages/NoPage'
+import Loading from './Utilities/Loading'
+
+
+// page import
+
+const Login = lazy(() => import ('./pages/Login'))
+const SignUp = lazy(() => import ('./pages/SignUp'))
+const NoPage = lazy(() => import ('./pages/NoPage'))
+const Dashboard = lazy(() => import ('./pages/Dashboard'))
+const AboutPage = lazy(() => import ('./pages/AboutPage'))
+const CareerPage = lazy(() => import ('./pages/CareerPage'))
+const ContactUs = lazy(() => import ('./pages/ContactUs'))
+const PoliciesPage = lazy(() => import ('./pages/PoliciesPage'))
+const CartPage = lazy(() => import ('./pages/CartPage'))
+const WishlistPage = lazy(() => import ('./pages/WishlistPage'))
+const CatPage = lazy(() => import ('./pages/CatPage'))
+const Profile = lazy(() => import ('./pages/Profile'))
+const ProductPage = lazy(() => import ('./pages/ProductPage'))
+const OrderConfirmPage = lazy(() => import ('./pages/OrderConfirmPage'))
+const CheckoutPage = lazy(() => import ('./pages/CheckoutPage'))
+const Home = lazy(() => import ('./pages/Home'))
+
+
+
+
+// component
+// -- modal
+const QuickView = lazy(() => import ('./components/Modal/QuickView'))
+
+// -- dashboard
+const DashboardDash = lazy(() => import ('./components/Dashboard/DashboardDash'))
+const CategoryDash = lazy(() => import ('./components/Dashboard/Category/CategoryDash'))
+const CategoryAddForm = lazy(() => import ('./components/Dashboard/Category/CategoryAddForm'))
+const CategoryEditDash = lazy(() => import ('./components/Dashboard/Category/CategoryEditDash'))
+const CategoryTable = lazy(() => import ('./components/Dashboard/Category/CategoryTable'))
+const BrandDash = lazy(() => import ('./components/Dashboard/Brand/BrandDash'))
+const BrandAddForm = lazy(() => import ('./components/Dashboard/Brand/BrandAddForm'))
+const BrandEditForm = lazy(() => import ('./components/Dashboard/Brand/BrandEditForm'))
+const BrandTable = lazy(() => import ('./components/Dashboard/Brand/BrandTable'))
+const SliderDash = lazy(() => import ('./components/Dashboard/Slider/SliderDash'))
+const SliderAddForm = lazy(() => import ('./components/Dashboard/Slider/SliderAddForm'))
+const SliderEditDash = lazy(() => import ('./components/Dashboard/Slider/SliderEditDash'))
+const SliderTable = lazy(() => import ('./components/Dashboard/Slider/SliderTable'))
+const ProductDash = lazy(() => import ('./components/Dashboard/Product/ProductDash'))
+const ProductAddForm = lazy(() => import ('./components/Dashboard/Product/ProductAddForm'))
+const ProductEditDashForm = lazy(() => import ('./components/Dashboard/Product/ProductEditDashForm'))
+const ProductTable = lazy(() => import ('./components/Dashboard/Product/ProductTable'))
+const SideMenuDash = lazy(() => import ('./components/Dashboard/SideMenu/SideMenuDash'))
+const SideMenuAddForm = lazy(() => import ('./components/Dashboard/SideMenu/SideMenuAddForm'))
+const SideMenuEditForm = lazy(() => import ('./components/Dashboard/SideMenu/SideMenuEditForm'))
+const SideMenuTable = lazy(() => import ('./components/Dashboard/SideMenu/SideMenuTable'))
+const KeyFeatureDash = lazy(() => import ('./components/Dashboard/KeyFeature/KeyFeatureDash'))
+const KeyFeatureTable = lazy(() => import ('./components/Dashboard/KeyFeature/KeyFeatureTable'))
+const KeyFeatureEditDash = lazy(() => import ('./components/Dashboard/KeyFeature/KeyFeatureEditDash'))
+const SpecificationDash = lazy(() => import ('./components/Dashboard/Specification/SpecificationDash'))
+const SpecificationEditDash = lazy(() => import ('./components/Dashboard/Specification/SpecificationEditDash'))
+const SpecificationTable = lazy(() => import ('./components/Dashboard/Specification/SpecificationTable'))
+const OrderDash = lazy(() => import ('./components/Dashboard/Order/OrderDash'))
+const OrderTable = lazy(() => import ('./components/Dashboard/Order/OrderTable'))
+const OrderSingleUserDash = lazy(() => import ('./components/Dashboard/Order/OrderSingleUserDash'))
+
+
+// -- profile
+const ProfileInfo = lazy(() => import ('./components/ProfilePage/ProfileInfo'))
+const ProfileOrder = lazy(() => import ('./components/ProfilePage/ProfileOrder'))
+
+
+
+
+
+
 
 
 function App() {
@@ -102,6 +123,7 @@ function App() {
     <div 
       className={`app ${showMenu ? `showmenu`: ``} ${showSearch ? `showsearch`: ``} ${showDpt ? `showdpt`: ``}`}
     >
+      <Suspense fallback={<Loading loading={true} />}>
       
 
       <CartProvider>
@@ -197,12 +219,12 @@ function App() {
                   <Route path='brand' element={<BrandDash/>} >
                     <Route path='' element={<BrandTable />} />
                     <Route path='add' element={<BrandAddForm />} />
-                    <Route path='edit/:id' element={<BrandEditDash />} />
+                    <Route path='edit/:id' element={<BrandEditForm />} />
                   </Route>
                   <Route path='product' element={<ProductDash/>}>
                     <Route path='' element={<ProductTable />} />
                     <Route path='add' element={<ProductAddForm />} />
-                    <Route path='edit/:id' element={<ProductEditDash />} />
+                    <Route path='edit/:id' element={<ProductEditDashForm />} />
                   </Route>
                   <Route path='key-feature' element={<KeyFeatureDash/>} >
                     <Route path='' element={<KeyFeatureTable />} />
@@ -220,7 +242,7 @@ function App() {
                   <Route path='side-menu' element={<SideMenuDash />} >
                     <Route path='' element={<SideMenuTable />} />
                     <Route path='add' element={<SideMenuAddForm />} />
-                    <Route path='edit/:id' element={<SideMenuEditDash />} />
+                    <Route path='edit/:id' element={<SideMenuEditForm />} />
                   </Route>
                   <Route path='order' element={<OrderDash/>} >
                     <Route path='' element={<OrderTable />} />
@@ -252,7 +274,7 @@ function App() {
 
       </CartProvider>
 
-      
+      </Suspense>
     </div>
   )
 }

@@ -33,7 +33,7 @@ const ContactUs = () => {
                       <p>
                         47, M.E.F Center(2nd Floor), Shahid Shahidullah Kaisar Road, Feni-3900
                         <br />
-                        <span className='ri-phone-fill'></span> <strong>01919 757678, 01919 757693</strong>  
+                        <span className='ri-phone-fill'></span> <strong>01919 757678, 01919 757679</strong>  
                       </p>
                     </article>
                     <article className="contact__card">

@@ -4,9 +4,11 @@ import { brand } from "../data";
 export const useSearchQuery = () => {
 
     const [response, setResponse] = useState()
+    const [loading, setLoading] = useState(false)
 
     const handleSearchQuery = async(name, field, size, page, token, ordering, min_price, max_price) => {
         try {
+            setLoading(true)
             let url = import.meta.env.VITE_API_URL + `/api/${import.meta.env.VITE_API_VERSION}/${name}/`
             
             const headerOpt = new Headers();
@@ -62,6 +64,8 @@ export const useSearchQuery = () => {
             
         } catch (error) {
             console.log(error)
+        } finally {
+            setLoading(false)
         }
     }
 
