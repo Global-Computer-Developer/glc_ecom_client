@@ -97,7 +97,7 @@ const ProductAddForm = () => {
             sold_stock: 0,
             total_stock: 0,
             description: '',
-            featured: true,
+            featured: false,
             offered: false,
             offered_time: '',
             uploaded_images: '',

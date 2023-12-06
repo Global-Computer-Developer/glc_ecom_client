@@ -22,7 +22,7 @@ const CardBox = () => {
   return (
     <div className="card-box flexwrap">
         {/* total product */}
-        <Link to={`/dashboard/product`} className="card">
+        <Link to={`/dashboard/product?page=1`} className="card">
             <div>
                 <div className="numbers">{product?.count}</div>
                 <div className="card-name">Products</div>
