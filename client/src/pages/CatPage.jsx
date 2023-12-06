@@ -10,6 +10,7 @@ import { useSearchQuery } from '../hooks/useSearchQuery'
 import NoItem from '../Utilities/NoItem'
 import DoubleRangeInput from '../Utilities/DoubleRangeInput'
 import Loading from '../Utilities/Loading'
+import LoadingFull from '../Utilities/LoadingFull'
 
 const CatPage = () => {
     const [filterShow, setFilterShow] = useState(false)
@@ -79,9 +80,12 @@ const CatPage = () => {
         </Helmet>
     }
     <section className='cat-page'>
+
         <div className={`single-category ${filterShow && `show-filter`}`}>
+            <LoadingFull loading={loading} />
             <div className="container">
                 <div className="wrapper">
+
                     <div className="column">
                         <div className="holder">
                             <div className="row sidebar">
@@ -144,6 +148,7 @@ const CatPage = () => {
                                 </div>
                             </div>
                             <section className='section'>
+
                                 <div className="row">
                                     <div className="cat-head">
                                         <div className="breadcrump">
@@ -226,8 +231,8 @@ const CatPage = () => {
 
                                 {/* featured products */}
                                 <div className="products main flexwrap">
-                                    <Loading loading={loading} />
                                     {
+                                        loading == false &&
                                         searchProduct &&
                                         searchProduct != undefined &&
                                         searchProduct.results != undefined &&

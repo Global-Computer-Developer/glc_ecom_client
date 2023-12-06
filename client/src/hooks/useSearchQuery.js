@@ -69,5 +69,5 @@ export const useSearchQuery = () => {
         }
     }
 
-    return [response, handleSearchQuery]
+    return [response, handleSearchQuery, loading]
 }

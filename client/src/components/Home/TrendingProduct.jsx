@@ -4,6 +4,7 @@ import BigTrendingCard from './BigTrendingCard'
 import { useGeneralGet } from '../../hooks/useGeneralGet'
 import { Link } from 'react-router-dom'
 import Loading from '../../Utilities/Loading'
+import LoadingFull from '../../Utilities/LoadingFull'
 
 const TrendingProduct = () => {
 
@@ -19,6 +20,7 @@ const TrendingProduct = () => {
 
   return (
     <section className="trending">
+        <LoadingFull loading={loadingBigProduct || loadingOfferProduct} />
         <div className="container">
             <div className="wrapper">
                 <div className="sectop flexitem">
@@ -35,7 +37,6 @@ const TrendingProduct = () => {
 
                 <div className="column">
                     <div className="flexwrap">
-                        <Loading loading={loadingBigProduct} />
 
                         {
                             loadingBigProduct == false &&
@@ -49,7 +50,6 @@ const TrendingProduct = () => {
                         {/* mini card */}
                         <div className="row products mini">
                             <div className='products-mini-content'>
-                                <Loading loading={loadingOfferProduct} />
 
                                 {    
                                     loadingOfferProduct == false &&

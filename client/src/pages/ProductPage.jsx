@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useGeneralGet } from '../hooks/useGeneralGet'
 import Loading from '../Utilities/Loading'
+import LoadingFull from '../Utilities/LoadingFull'
 
 
 const ProductPage = () => {
@@ -43,11 +44,11 @@ const ProductPage = () => {
       </Helmet>
     }
     <section id='page' className='product-page single-page'>
+        <LoadingFull loading={loading} />
         <div className="container">
           {
             product &&
             <div className="wrapper">
-                <Loading loading={loading} />
                 <ProductPageHeader 
                   productCat={product.category} 
                   productTitle={product.title}
