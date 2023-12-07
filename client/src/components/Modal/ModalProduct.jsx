@@ -15,6 +15,7 @@ import { useCartContext } from '../../context/CartContext';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { currenyFormat } from '../../Utilities/currencyFormat';
 import { useGeneralGet } from '../../hooks/useGeneralGet';
+import LoadingFull from '../../Utilities/LoadingFull';
 
 
 
@@ -36,12 +37,11 @@ const ModalProduct = ({
         handleAddCart,
     } = useCartContext()
 
-    const [product, handleProductGet] = useGeneralGet()
+    const [product, handleProductGet, loading] = useGeneralGet()
 
     
     useEffect(() => {
-        handleProductGet(`product`,productSlug)
-        console.log(product)
+        handleProductGet({name: `product`, id: productSlug})
     }, [productSlug])
 
 
@@ -167,14 +167,14 @@ const ModalProduct = ({
                             <div className="rating">
                                 {
                                     product &&
-                                    product?.reviews[0] &&
+                                    product.reviews[0] &&
                                         <Stars NumStar={product.reviews[0].average_stars} />
                                 }
-                                <a href="#review-form" className="mini-text">
+                                <a className="mini-text">
                                     {
                                         product?.reviews[0] ?
                                         product?.reviews[0].count_review :
-                                        `0`
+                                        `0 `
                                     } reviews
                                 </a>
                             </div>

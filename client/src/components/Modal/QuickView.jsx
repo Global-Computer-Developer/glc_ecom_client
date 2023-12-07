@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react"
 import { useQuickViewContext } from "../../context/QuickViewContext"
 import ModalProduct from "./ModalProduct"
 
