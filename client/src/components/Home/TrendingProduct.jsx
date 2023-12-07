@@ -3,7 +3,6 @@ import TrendingCardMini from './TrendingCardMini'
 import BigTrendingCard from './BigTrendingCard'
 import { useGeneralGet } from '../../hooks/useGeneralGet'
 import { Link } from 'react-router-dom'
-import Loading from '../../Utilities/Loading'
 import LoadingFull from '../../Utilities/LoadingFull'
 
 const TrendingProduct = () => {

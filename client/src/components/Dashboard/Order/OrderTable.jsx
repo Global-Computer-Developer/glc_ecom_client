@@ -20,7 +20,7 @@ const OrderTable = () => {
 
     useEffect(() => {
 
-        handleOrder(`order`,``,``,``,``,``,auth)
+        handleOrder({name:`order`, token: auth})
         window.scrollTo(0,0)
         
     },[delStatus, auth])

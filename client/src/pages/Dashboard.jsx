@@ -8,6 +8,7 @@ import {GoCodespaces} from 'react-icons/go'
 import Topbar from '../components/Dashboard/Topbar'
 import { toTitleCase } from '../Utilities/toTitleCase'
 import { Helmet } from 'react-helmet'
+import { useAuthContext } from '../context/AuthContext'
 
 
 
@@ -16,6 +17,9 @@ const Dashboard = () => {
     const [toggle, setToggle] = useState(true)
     const [tab, setTab] = useState()
     const {pathname} = useLocation()
+
+    const {groups} = useAuthContext()
+
 
 
     useEffect(() => {
@@ -77,12 +81,19 @@ const Dashboard = () => {
                             <span className="title">Brand</span>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to={'/dashboard/side-menu'}>
-                            <PiSidebarSimpleBold className='icon' />
-                            <span className="title">Side Menu</span>
-                        </NavLink>
-                    </li>
+                    {
+                        groups &&
+                        groups.find((item) => {
+                            return item == 'Manager'
+                        }) &&
+                            <li>
+                                <NavLink to={'/dashboard/side-menu'}>
+                                    <PiSidebarSimpleBold className='icon' />
+                                    <span className="title">Side Menu</span>
+                                </NavLink>
+                            </li>
+                    }
+
                     <li>
                         <NavLink to={'/dashboard/product?page=1'}>
                             <BiLaptop className='icon' />
@@ -101,19 +112,26 @@ const Dashboard = () => {
                             <span className="title">Specification</span>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to={'/dashboard/slider'}>
-                            <PiSlideshowBold className='icon' />
-                            <span className="title">Slider</span>
-                        </NavLink>
-                    </li>
-                    
-                    <li>
-                        <NavLink to={'/dashboard/order'}>
-                            <AiOutlineShoppingCart className='icon' />
-                            <span className="title">Order</span>
-                        </NavLink>
-                    </li>
+                    {
+                        groups &&
+                        groups.find((item) => {
+                            return item == 'Manager'
+                        }) &&
+                        <>
+                            <li>
+                                <NavLink to={'/dashboard/slider'}>
+                                    <PiSlideshowBold className='icon' />
+                                    <span className="title">Slider</span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={'/dashboard/order'}>
+                                    <AiOutlineShoppingCart className='icon' />
+                                    <span className="title">Order</span>
+                                </NavLink>
+                            </li>
+                        </>
+                    }
                 </ul>
             </aside>
 

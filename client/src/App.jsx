@@ -91,7 +91,7 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   const { pathname } = useLocation()
 
-  const {user, onAuth} = useAuthContext()
+  const {user, onAuth, groups} = useAuthContext()
 
 
   useEffect(() => {
@@ -239,20 +239,28 @@ function App() {
                     <Route path='' element={<SpecificationTable />} />
                     <Route path='edit/:id' element={<SpecificationEditDash />} />
                   </Route>
-                  <Route path='slider' element={<SliderDash/>} >
-                    <Route path='' element={<SliderTable />} />
-                    <Route path='add' element={<SliderAddForm />} />
-                    <Route path='edit/:id' element={<SliderEditDash />} />
-                  </Route>
-                  <Route path='side-menu' element={<SideMenuDash />} >
-                    <Route path='' element={<SideMenuTable />} />
-                    <Route path='add' element={<SideMenuAddForm />} />
-                    <Route path='edit/:id' element={<SideMenuEditForm />} />
-                  </Route>
-                  <Route path='order' element={<OrderDash/>} >
-                    <Route path='' element={<OrderTable />} />
-                    <Route path=':id' element={<OrderSingleUserDash />} />
-                  </Route>
+                  {
+                    groups &&
+                    groups.find((item) => {
+                        return item == 'Manager'
+                    }) &&
+                    <>
+                      <Route path='slider' element={<SliderDash/>} >
+                        <Route path='' element={<SliderTable />} />
+                        <Route path='add' element={<SliderAddForm />} />
+                        <Route path='edit/:id' element={<SliderEditDash />} />
+                      </Route>
+                      <Route path='side-menu' element={<SideMenuDash />} >
+                        <Route path='' element={<SideMenuTable />} />
+                        <Route path='add' element={<SideMenuAddForm />} />
+                        <Route path='edit/:id' element={<SideMenuEditForm />} />
+                      </Route>
+                      <Route path='order' element={<OrderDash/>} >
+                        <Route path='' element={<OrderTable />} />
+                        <Route path=':id' element={<OrderSingleUserDash />} />
+                      </Route>
+                    </>
+                }
                 </Route>
             }
 

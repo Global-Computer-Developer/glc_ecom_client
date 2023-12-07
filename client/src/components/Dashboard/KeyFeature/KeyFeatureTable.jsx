@@ -17,7 +17,7 @@ const KeyFeatureTable = () => {
 
     const [searchQuery, setSearchQuery] = useSearchParams()
 
-    const [size, setSize] = useState(3)
+    const [size, setSize] = useState(9)
     const [page, setPage] = useState(parseInt(searchQuery.get('page')))
 
     const [query, setQuery] = useState('')
@@ -50,19 +50,19 @@ const KeyFeatureTable = () => {
 
   return (
     <>
-    <div className="dash-product__header flexspace">
-        <div className="search-box">
-            <form className='search' onSubmit={handleSubmit}>
-                <span className='icon-large'><i className="ri-search-line"></i></span>
-                <input type="search" placeholder='Search' onChange={handleSearch}/>
-                <button type='submit'>Search</button>
-            </form>
+        <div className="dash-product__header flexitem">
+            <ItemPerShowDrop 
+                perPage={size}
+                setPerPage={setSize}
+            />
+            <div className="search-box">
+                <form className='search' onSubmit={handleSubmit}>
+                    <span className='icon-large'><i className="ri-search-line"></i></span>
+                    <input type="search" placeholder='Search' onChange={handleSearch}/>
+                    <button type='submit'>Search</button>
+                </form>
+            </div>
         </div>
-        <ItemPerShowDrop 
-            perPage={size}
-            setPerPage={setSize}
-        />
-    </div>
 
     <DelStatus delStatus={delStatus} />
 

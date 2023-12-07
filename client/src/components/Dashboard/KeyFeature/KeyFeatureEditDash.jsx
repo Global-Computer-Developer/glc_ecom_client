@@ -25,7 +25,7 @@ const KeyFeatureEditDash = () => {
 
 
     useEffect(() => {
-        handleProductFeature(`feature`,id)
+        handleProductFeature({name: `feature`, id: id})
     }, [delStatus, success])
 
 

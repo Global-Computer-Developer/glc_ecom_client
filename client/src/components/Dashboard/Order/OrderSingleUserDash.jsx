@@ -10,11 +10,12 @@ import { currenyFormat } from '../../../Utilities/currencyFormat'
 import OrderStatus from '../../../Utilities/OrderStatus'
 import Button from '../../../Utilities/Button'
 import { useGeneralPATCH } from '../../../hooks/useGeneralPATCH'
+import NoItem from '../../../Utilities/NoItem'
 
 const OrderSingleUserDash = () => {
     const {auth} = useAuthContext()
   
-    const [orderRes, handleOrderGET] = useGeneralGet()
+    const [orderRes, handleOrderGET, loadingOrder] = useGeneralGet()
     const [delStatus, handleOrderItemDEL] = useGeneralDEL() 
     const [loading, error, success, handleConfirmOrderPATCH] = useGeneralPATCH() 
     const [loadingRe, errorRe, successRe, handleReversemOrderPATCH] = useGeneralPATCH() 
@@ -23,7 +24,7 @@ const OrderSingleUserDash = () => {
 
     useEffect(() => {
        
-        handleOrderGET(`order`,id, ``,``,``,``, auth)
+        handleOrderGET({name: `order`,id: id, token: auth})
         window.scrollTo(0,0)
 
     }, [delStatus, auth, success, successRe])
@@ -112,15 +113,17 @@ const OrderSingleUserDash = () => {
                 <h2>Orders</h2>
                 <table className='dash-table'>
                     <thead>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Price</th>
-                        <th>Delete</th>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Price</th>
+                            <th>Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {
-                            orderRes && orderRes.orders ?
+                            orderRes && orderRes.orders &&
                             orderRes.orders.map(item => (
                                 <tr key={item.id}>
                                     <td >{item.product}</td>
@@ -131,16 +134,11 @@ const OrderSingleUserDash = () => {
                                         <ButtonClose onClick={() => {handleOrderItemDEL(`single-order`, item.id, auth)}} />
                                     </td>
                                 </tr>
-                            )) :
-                            <tr>
-                                <td className='no-item flexcenter' >
-                                    <MdContentPasteOff />
-                                    <p>No item to show!</p>
-                                </td>
-                            </tr> 
+                            )) 
                         }
                     </tbody>
                 </table>
+                {loadingOrder == false && orderRes && orderRes.orders == 0 && <NoItem />}
             </div>
         </section>
     )

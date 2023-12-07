@@ -42,6 +42,9 @@ export const useGeneralGet = () => {
                 if (response.status !== 200) {
                     return
                 }
+                if (response.status == 404) {
+                    throw new Error('Not Found!')
+                }
                 return response.json()
             }).then(data => {
                 setResponse(cat => {

@@ -27,8 +27,8 @@ const SideMenuEditDash = () => {
 
 
     useEffect(() => {
-        handleSingleSideMenuGET(`side-menu`,id)
-        handleSideMenuGET(`side-menu`)
+        handleSingleSideMenuGET({name: `side-menu`,id :id})
+        handleSideMenuGET({name: `side-menu`})
     }, [successSubMenu, delStatus])
 
     useEffect(() => {

@@ -64,8 +64,8 @@ const SpecificationEditDash = () => {
 
     useEffect(() => {
         
-        handleProductSpecs(`specification`,id)
-        handleProduct(`product`,id)
+        handleProductSpecs({name: `specification`, id: id})
+        handleProduct({name:`product`, id: id})
         window.scrollTo(0,0)
 
     }, [delStatus, delStatusSingleSpec,success])

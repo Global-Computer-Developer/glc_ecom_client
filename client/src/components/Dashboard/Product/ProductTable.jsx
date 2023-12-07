@@ -52,7 +52,11 @@ const ProductTable = () => {
 
   return (
     <>
-        <div className="dash-product__header flexspace">
+        <div className="dash-product__header flexitem">
+            <ItemPerShowDrop 
+                perPage={size}
+                setPerPage={setSize}
+            />
             <div className="search-box">
                 <form className='search' onSubmit={handleSubmit}>
                     <span className='icon-large'><i className="ri-search-line"></i></span>
@@ -60,10 +64,6 @@ const ProductTable = () => {
                     <button type='submit'>Search</button>
                 </form>
             </div>
-            <ItemPerShowDrop 
-                perPage={size}
-                setPerPage={setSize}
-            />
         </div>
 
         <DelStatus delStatus={delStatus} />

@@ -3673,6 +3673,11 @@ dialog::backdrop {
   border-color: transparent;
 }
 
+.dashboard .dash-product__header {
+  gap: 1em;
+  justify-content: end;
+}
+
 .dashboard .user {
   height: 2.875em; 
 }

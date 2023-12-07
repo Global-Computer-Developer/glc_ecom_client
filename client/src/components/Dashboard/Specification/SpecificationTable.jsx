@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { MdContentPasteOff } from 'react-icons/md'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useGeneralGet } from '../../../hooks/useGeneralGet'
 import ItemPerShowDrop from '../../../Utilities/ItemPerShowDrop'
@@ -16,7 +15,7 @@ const SpecificationTable = () => {
     const {auth} = useAuthContext()
     const [searchQuery, setSearchQuery] = useSearchParams()
 
-    const [size, setSize] = useState(3)
+    const [size, setSize] = useState(9)
     const [page, setPage] = useState(parseInt(searchQuery.get('page')))
 
     const [query, setQuery] = useState()
@@ -48,7 +47,11 @@ const SpecificationTable = () => {
 
   return (
     <>
-    <div className="dash-product__header flexspace">
+    <div className="dash-product__header flexitem">
+            <ItemPerShowDrop 
+            perPage={size}
+            setPerPage={setSize}
+        />
         <div className="search-box">
             <form className='search' onSubmit={handleSubmit}>
                 <span className='icon-large'><i className="ri-search-line"></i></span>
@@ -56,10 +59,6 @@ const SpecificationTable = () => {
                 <button type='submit'>Search</button>
             </form>
         </div>
-        <ItemPerShowDrop 
-            perPage={size}
-            setPerPage={setSize}
-        />
     </div>
 
     <DelStatus delStatus={delStatus} />

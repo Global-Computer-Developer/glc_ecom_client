@@ -44,7 +44,9 @@ export const useSearchQuery = () => {
                 url += `?search=${fields[2]}`
             }
 
-            url += `&size=${size}&page=${page}&ordering=${ordering ? ordering : ``}&min_price=${min_price ? min_price : ``}&max_price=${max_price ? max_price : ``}`
+            if (fields.length != 0 && fields[2].length > 0) {
+                url += `&size=${size}&page=${page}&ordering=${ordering ? ordering : ``}&min_price=${min_price ? min_price : ``}&max_price=${max_price ? max_price : ``}`
+            } 
 
             await fetch( url, 
                 {
@@ -55,7 +57,11 @@ export const useSearchQuery = () => {
                         if (response.status !== 200) {
                             return
                         }
-                        return response.json()
+                        if (response.status == 404) {
+                            throw new Error('not found!')
+                        } else {
+                            return response.json()
+                        }
                     }).then(data => {
                         setResponse(cat => {
                             return data

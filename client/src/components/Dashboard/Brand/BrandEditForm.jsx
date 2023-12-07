@@ -21,7 +21,7 @@ const BrandEditDash = () => {
     const [loading, error, success, handleBrand] = useGeneralPUT()
 
     useEffect(() => {
-        handleSingleBrand(`brand`,id)
+        handleSingleBrand({name: `brand`,id: id})
     }, [])
 
     useEffect(() => {

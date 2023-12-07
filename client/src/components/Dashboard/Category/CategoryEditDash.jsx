@@ -21,7 +21,7 @@ const CategoryEditDash = () => {
 
 
     useEffect(() => {
-        handleSingleCategory(`category`,id)
+        handleSingleCategory({name: `category`,id: id})
     }, [id])
 
 

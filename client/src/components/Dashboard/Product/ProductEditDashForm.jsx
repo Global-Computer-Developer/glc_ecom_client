@@ -37,10 +37,10 @@ const ProductEditDash = () => {
 
     useEffect(() => {
         
-        handleSingleProduct(`product`, id)
-        handleCategory(`category`, ``, `title`)
-        handleBrand(`brand`, ``, `title`)
-        handleSideMenu(`side-menu`,``,`title`)
+        handleSingleProduct({name: `product`, id: id})
+        handleCategory({name: `category`,order: `title`})
+        handleBrand({name: `brand`, order: `title`})
+        handleSideMenu({name: `side-menu`, order: `title`})
 
     }, [success, successImage, delStatus])
 
