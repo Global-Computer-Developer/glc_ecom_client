@@ -40,7 +40,7 @@ export const useSearchQuery = () => {
                     &category__slug=${fields[3] == 'c' ?fields[4]: ''}`
             }
 
-            if ((fields.length != 0 && fields[1] == 'search' && fields[2].length != 0)) {
+            if ((fields.length != 0 && fields[1] == 'search' && fields[2].length > 0)) {
                 url += `?search=${fields[2]}`
             }
 

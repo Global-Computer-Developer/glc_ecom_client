@@ -27,7 +27,7 @@ const SideNav = ({setShowMenu}) => {
         },[sideCat])
 
         useEffect(() => {
-            handleSideCatGET(`side-menu`)
+            handleSideCatGET({name: `side-menu`})
         }, [])
         
    

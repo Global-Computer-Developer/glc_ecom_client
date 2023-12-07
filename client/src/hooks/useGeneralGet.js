@@ -7,7 +7,7 @@ export const useGeneralGet = () => {
 
     
 
-    const handleGet = async({name, id, order, page, size, category_slug, token, status, offered, featured, product_slug, side_menu_slug, category_id, auth, brand_slug, display_big, min_price, max_price, search}) => {
+    const handleGet = async({name, id, order, page, size, category_slug, token, status, offered, featured, product_slug, side_menu_slug, category_id, auth, brand_slug, display_big, min_price, max_price, search, order_status}) => {
         
         try {
             setLoading(true)
@@ -32,7 +32,8 @@ export const useGeneralGet = () => {
                 + `${display_big ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug? '&' : '?'}display_big=${display_big}` : ''}`  
                 + `${min_price ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug || display_big? '&' : '?'}min_price=${min_price}` : ''}` 
                 + `${max_price ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug || display_big || min_price? '&' : '?'}max_price=${max_price}` : ''}` 
-                + `${(search && search.length > 0) ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug || display_big || min_price || max_price? '&' : '?'}search=${search}` : ''}` , 
+                + `${(search && search.length > 0) ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug || display_big || min_price || max_price? '&' : '?'}search=${search}` : ''}`  
+                + `${order_status ? `${order || page || size || category_slug || status || offered || featured || product_slug || side_menu_slug || category_id || brand_slug || display_big || min_price || max_price || search? '&' : '?'}status=${order_status}` : ''}` , 
             {
                 method: 'GET',
                 headers: headerOpt,

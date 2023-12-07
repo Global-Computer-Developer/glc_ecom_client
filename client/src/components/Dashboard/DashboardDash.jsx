@@ -16,7 +16,7 @@ const DashboardDash = () => {
 
     useEffect(() => {
         
-        handleOrderGET(`order`,``,``,``,``,``,auth, `0`)
+        handleOrderGET({name:`order`, token: auth, status:`0`})
         console.log(order)
         window.scrollTo(0,0)
 

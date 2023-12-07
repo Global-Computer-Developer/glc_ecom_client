@@ -203,7 +203,10 @@ function App() {
               user && 
               <Route path='/profile/:username' element={<Profile />}>
                 <Route path='info' element={<ProfileInfo />} />
-                <Route path='order' element={<ProfileOrder />} />
+                {
+                  user.is_staff == false &&
+                    <Route path='order' element={<ProfileOrder />} />
+                }
               </Route>
             }
 

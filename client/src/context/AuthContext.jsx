@@ -19,13 +19,14 @@ export const AuthProvider = ({children}) => {
 
     const [auth, setAuth] = useState('')    
     const [user, setUser] = useState('') 
+    const [groups, setGroups] = useState('') 
     const {pathname} = useLocation()   
     
 
 
     const fetchUserData = async() => {
         if (auth) {
-            await fetch(import.meta.env.VITE_API_URL+"/auth/v1/users/me/", {
+            await fetch(import.meta.env.VITE_API_URL+`/auth/${import.meta.env.VITE_API_VERSION}/users/me/`, {
                 headers: {
                     "Content-type": "application/json",
                     "Authorization": "Token " + auth, 
@@ -47,17 +48,36 @@ export const AuthProvider = ({children}) => {
         }
     }
 
+    const getUserGroup = async() => {
+        if (user) {
+            await fetch(import.meta.env.VITE_API_URL + `/api/${import.meta.env.VITE_API_VERSION}/user-profile/${user.username}`, {
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": "Token " + auth, 
+                }
+            }).then(res => res.json())
+                .then(data => {
+                    setGroups(data?.groups)
+                })
+        }
+    }
+
 
 
     useEffect(() => {
         fetchUserData()
     }, [auth, pathname])
 
+    useEffect(() => {
+        getUserGroup()
+    },[user, pathname])
+
     return (
         <AuthContext.Provider
             value={{
                 auth,
                 user,
+                groups,
                 onAuth: (token) => {setAuth(token)}
             }}
         >

@@ -12,8 +12,8 @@ const CardBox = () => {
 
 
     useEffect(() => {
-        handleProductGET(`product`,``,``,1,1)
-        handleOrderGET(`order`,``,``,1,1,``,auth,`0`)
+        handleProductGET({name: `product`,size: 1, page: 1})
+        handleOrderGET({name:`order`, page:1, size:1, token:auth, order_status:`0`})
         window.scrollTo(0,0)
 
     },[auth])

@@ -178,9 +178,12 @@ const Profile = () => {
                         <NavLink to={`/profile/${user && user.username}/info`} className="user-nav-card light-btn">
                            Profile 
                         </NavLink>
-                        <NavLink to={`/profile/${user && user.username}/order`} className="user-nav-card light-btn">
-                           Order
-                        </NavLink>
+                        {
+                            user && user.is_staff == false &&
+                                <NavLink to={`/profile/${user && user.username}/order`} className="user-nav-card light-btn">
+                                    Order
+                                </NavLink>
+                        }
                     </div>
                 </div>
                 <div className="content-body">

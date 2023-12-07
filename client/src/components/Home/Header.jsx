@@ -4,8 +4,7 @@ import { useAuthContext } from '../../context/AuthContext'
 
 const Header = () => {
 
-    const {auth, user} = useAuthContext()
-
+    const {auth, user, groups} = useAuthContext()
 
     const handleLogout = async() => {
         try {
@@ -64,11 +63,15 @@ const Header = () => {
                                                 Profile
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to={`/profile/${user?.username}/order`}>
-                                                Order
-                                            </Link>
-                                        </li>
+                                        {
+                                            user &&
+                                            user.is_staff == false &&
+                                                <li>
+                                                    <Link to={`/profile/${user?.username}/order`}>
+                                                        Order
+                                                    </Link>
+                                                </li>
+                                        }
                                         {
                                             user &&
                                             user.is_staff &&

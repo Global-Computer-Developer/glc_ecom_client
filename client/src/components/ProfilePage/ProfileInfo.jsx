@@ -17,8 +17,6 @@ const ProfileInfo = () => {
 
     const [loading, error, success, handleUserProfilePATCH] = useGeneralPATCH()
 
-    console.log(username)
-
     const formik = useFormik({
         initialValues: {
             email: user && user.email,
