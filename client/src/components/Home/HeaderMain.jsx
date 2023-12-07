@@ -54,8 +54,8 @@ const HeaderMain = ({showDpt, setShowDpt}) => {
     },[showDpt])
 
     useEffect(() => {
-        handleSideCatGET(`side-menu`)
-        handleProductGET('product',``,``,``,1)
+        handleSideCatGET({name:`side-menu`})
+        handleProductGET({name: 'product', size: 1})
     },[])
 
     const handleSearch = (e) => {

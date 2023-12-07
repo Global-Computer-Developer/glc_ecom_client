@@ -13,8 +13,8 @@ const TrendingProduct = () => {
 
 
     useEffect(() => {
-        handleOfferedProductGET(`product`,``,``,1,6,``,``,1,`1`)
-        handleProductBigGET(`product`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, `true`)
+        handleOfferedProductGET({name: `product`,page: 1,size: 6, offered: 1, status: `1`})
+        handleProductBigGET({name:`product`, display_big: `true`})
     }, [])
 
 

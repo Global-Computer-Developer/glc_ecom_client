@@ -14,7 +14,7 @@ const Slider = () => {
     const [sliderRes, handleSliderGET] = useGeneralGet()
 
     useEffect(() => {
-        handleSliderGET(`slider`)
+        handleSliderGET({name: `slider`})
     },[])
     
   return (
@@ -42,7 +42,7 @@ const Slider = () => {
                                 <SwiperSlide key={item.id}>
                                     <div className="item">
                                         <div className="image object-cover">
-                                            <Link to={`${import.meta.env.VITE_APP_URL}${item.slider_url}`}>
+                                            <Link to={item.slider_url}>
                                                 <img
                                                     src={item?.image} 
                                                     loading='lazy'
@@ -62,12 +62,14 @@ const Slider = () => {
                                                 </h2>
                                                 {
                                                     (item.mini_text || item.mid_text) &&
-                                                    <button 
-                                                        type='button'
-                                                        className='primary-btn'
-                                                    >
-                                                        Shop Now
-                                                    </button>
+                                                    <Link to={item.slider_url}>
+                                                        <button 
+                                                            type='button'
+                                                            className='primary-btn'
+                                                            >
+                                                            Shop Now
+                                                        </button>
+                                                    </Link>
                                                 }
                                             </div>
                                     </div>

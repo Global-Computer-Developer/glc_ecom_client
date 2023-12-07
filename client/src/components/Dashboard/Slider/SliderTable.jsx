@@ -17,7 +17,7 @@ const SliderTable = () => {
    
     useEffect(() => {
         
-        handleSlider(`slider`)
+        handleSlider({name: `slider`})
         
     },[delStatus])
 

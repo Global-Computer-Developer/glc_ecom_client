@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { MdContentPasteOff } from 'react-icons/md'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useGeneralGet } from '../../../hooks/useGeneralGet'
 import { useGeneralDEL } from '../../../hooks/useGeneralDEL'
@@ -18,7 +17,7 @@ const CategoryTable = () => {
     const [delStatus, handleDelCategory] = useGeneralDEL()
 
     useEffect(() => {
-        handleCategory(`category`,``,`-id`)
+        handleCategory({name: 'category', order: '-id'})
         window.scrollTo(0,0)
     },[delStatus])
 
@@ -26,7 +25,7 @@ const CategoryTable = () => {
   return (
 
     <>
-
+    
     <DelStatus delStatus={delStatus} />
     <div className="dash-table__container">
         <h2>Category List</h2>

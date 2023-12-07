@@ -26,7 +26,7 @@ const HeaderNavMobile = ({
     const cartRef = useRef()
     
     useEffect(() => {
-        handleSideCatGET(`side-menu`)
+        handleSideCatGET({name: `side-menu`})
     },[])
 
     

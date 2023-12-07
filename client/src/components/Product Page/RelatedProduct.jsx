@@ -9,7 +9,7 @@ const RelatedProduct = ({ productCat }) => {
     const [productRelated, handleProductGET] = useGeneralGet()
 
     useEffect(() => {
-        handleProductGET(`product`,``,``,``,``,productCat.slug)
+        handleProductGET({name:`product`, category_slug: productCat.slug})
     }, [])
 
 

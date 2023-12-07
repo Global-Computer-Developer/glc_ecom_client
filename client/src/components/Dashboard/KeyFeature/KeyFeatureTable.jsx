@@ -20,6 +20,8 @@ const KeyFeatureTable = () => {
     const [size, setSize] = useState(3)
     const [page, setPage] = useState(parseInt(searchQuery.get('page')))
 
+    const [query, setQuery] = useState('')
+
     const [response, handleKeyFeature, loading] = useGeneralGet()
     const [delStatus, handleKeyFeatureDEL] = useGeneralDEL()
 
@@ -32,19 +34,35 @@ const KeyFeatureTable = () => {
     }, [page])
 
     useEffect(() => {
-        handleKeyFeature(`product`,``,`-id`, searchQuery.get(`page`), size)
+        handleKeyFeature({name:`product`,order:`-id`, page:searchQuery.get(`page`), size:size, search: query})
         window.scrollTo(0,0)
-    },[searchQuery, delStatus, page, size])
+    },[searchQuery, delStatus, page, size, query])
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setQuery(e.target.value)
+    }
+    const handleSearch = (e) => {
+        setQuery(e.target.value)
+    }
 
 
 
   return (
     <>
-    <ItemPerShowDrop 
-        perPage={size}
-        setPerPage={setSize}
-    />
+    <div className="dash-product__header flexspace">
+        <div className="search-box">
+            <form className='search' onSubmit={handleSubmit}>
+                <span className='icon-large'><i className="ri-search-line"></i></span>
+                <input type="search" placeholder='Search' onChange={handleSearch}/>
+                <button type='submit'>Search</button>
+            </form>
+        </div>
+        <ItemPerShowDrop 
+            perPage={size}
+            setPerPage={setSize}
+        />
+    </div>
 
     <DelStatus delStatus={delStatus} />
 

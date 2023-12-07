@@ -20,7 +20,7 @@ const SideMenuTable = () => {
 
     useEffect(() => {
 
-        handleSideMenu(`side-menu`)
+        handleSideMenu({name:`side-menu`})
         
     },[delStatus])
 

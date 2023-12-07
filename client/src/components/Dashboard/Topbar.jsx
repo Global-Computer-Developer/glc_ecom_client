@@ -12,13 +12,6 @@ const Topbar = ({toggle, setToggle}) => {
         >
             <AiOutlineMenu />
         </div>
-        <div className="search-box">
-            <form className='search'>
-                <span className='icon-large'><i className="ri-search-line"></i></span>
-                <input type="search" placeholder='Search for products' />
-                <button type='submit'>Search</button>
-            </form>
-        </div>
     </div>
   )
 }

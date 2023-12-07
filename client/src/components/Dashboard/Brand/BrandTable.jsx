@@ -17,7 +17,7 @@ const BrandTable = () => {
     const [delStatus, handleDelBrand] = useGeneralDEL()
 
     useEffect(() => {
-        handleBrand(`brand`)
+        handleBrand({name: 'brand', order: 'title'})
         window.scrollTo(0,0)
     },[delStatus])
 

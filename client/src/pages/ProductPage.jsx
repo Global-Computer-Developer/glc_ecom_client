@@ -17,7 +17,7 @@ const ProductPage = () => {
   
 
   useEffect(() => {
-    handleProductGET(`product`,id)
+    handleProductGET({name:`product`,id: id})
   },[id])
 
 

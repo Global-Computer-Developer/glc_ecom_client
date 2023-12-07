@@ -9,7 +9,7 @@ const DptMenuHome = () => {
 
 
     useEffect(() => {
-        handleSideCatGET(`side-menu`)
+        handleSideCatGET({name:`side-menu`})
     },[])
 
   return (

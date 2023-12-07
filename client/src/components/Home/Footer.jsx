@@ -48,7 +48,7 @@ const Footer = ({
 
 
     useEffect(() => {
-        handleSideCatGET(`side-menu`)
+        handleSideCatGET({name: `side-menu`})
     }, [])
 
   
