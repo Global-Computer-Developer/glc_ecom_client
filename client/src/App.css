@@ -2271,15 +2271,17 @@ article.item :where(.available, .inavailable) {
   line-height: 3em;
 }
 
+
 :where(.products .collapse table, .spec-table) thead th {
   vertical-align: bottom;
   border-bottom: 2px solid var(--dark-clr);
+  background-color: var(--light-bg-clr);
 }
 
 :where(.products .collapse table, .spec-table) :where(th, td) {
   overflow: hidden;
   border-bottom: 1px solid var(--border-clr);
-  padding-left: 2em;
+  padding-left: 0.5em;
   text-overflow: ellipsis;
 }
 
@@ -2435,7 +2437,7 @@ article.item :where(.available, .inavailable) {
   position: relative;
   padding: 0.25em;
   float: right;
-  font-size: 2em;
+  font-size: 1.5em;
   top: -0.75em;
   color: var(--secondary-dark-clr);
 }
