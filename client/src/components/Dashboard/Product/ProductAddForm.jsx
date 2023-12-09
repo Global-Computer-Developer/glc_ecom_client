@@ -24,9 +24,9 @@ const ProductAddForm = () => {
 
 
     useEffect(() => {
-        handleCategory(`category`, ``, `title`)
-        handleBrand(`brand`, ``, `title`)
-        handleSideMenu(`side-menu`,``,`title`)
+        handleCategory({name: `category`, order: `title`})
+        handleBrand({name: `brand`, order: `title`})
+        handleSideMenu({name: `side-menu`, order: `title`})
     }, [pathname])
 
     useEffect(() => {
