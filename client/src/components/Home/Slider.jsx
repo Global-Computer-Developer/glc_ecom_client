@@ -19,7 +19,6 @@ const Slider = () => {
     
   return (
     <>
-        
         <div className="slider">
             <div className="container">
                 <div className="wrapper">

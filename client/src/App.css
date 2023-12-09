@@ -4258,6 +4258,60 @@ input[type="number"] {
 
 
 
+/* policies page */
+.policies__content {
+  border: 1px solid var(--border-clr);
+  padding: 2em 5em;
+  margin: 2em 0;
+  border-radius: 10px;
+}
+.policies__content > h1 {
+  font-size: 1.75em;
+  margin-bottom: 1.25em;
+  border-bottom: 1px solid var(--border-clr);
+}
+
+.policies__content  h2 {
+  font-size: 1.5em;
+  margin: 3em 0 1em;
+  border-bottom: 1px solid var(--border-clr);
+}
+
+.policies__content  h3 {
+  font-size: 1.25em;
+  margin: 1em 0 0.125em;
+}
+
+.policies__content  h4 {
+  font-size: 1em;
+  margin: 0.75em 0;
+  font-weight: var(--fw-700);
+}
+
+.policies__content :where(br, article, p) {
+  margin: 0.75em 0 0.5em;
+  text-align: justify;
+}
+
+.policies__content ul {
+  list-style: disc outside;
+}
+
+.policies__content li {
+  margin-left: 2em;
+  padding-left: 1em;
+}
+
+.policies__content a {
+  text-decoration: underline;
+  color: var(--secondary-clr);
+}
+
+
+
+
+
+
 
 /* user profile */
 .profile-page {
@@ -4517,6 +4571,11 @@ input[type="number"] {
   width: 100%;
   max-width: 25em;
 }
+
+
+
+
+
 
 
 
