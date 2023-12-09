@@ -1093,6 +1093,9 @@ form.search button:hover{
 /* swiper bullet */
 .swiper-pagination .swiper-pagination-bullet {
   background-color: var(--border-clr);
+  width: 2em;
+  height: 0.25em;
+  border-radius: 0;
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {

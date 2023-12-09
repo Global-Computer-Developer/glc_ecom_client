@@ -27,7 +27,6 @@ const Slider = () => {
                     <Swiper 
                         loop={true}
                         autoplay={{
-                            delay: 3000,
                             disableOnInteraction: false,
                         }}
                         pagination={{
@@ -66,7 +65,7 @@ const Slider = () => {
                                                         <button 
                                                             type='button'
                                                             className='primary-btn'
-                                                            >
+                                                        >
                                                             Shop Now
                                                         </button>
                                                     </Link>
