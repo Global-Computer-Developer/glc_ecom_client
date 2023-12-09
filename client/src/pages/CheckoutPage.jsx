@@ -38,7 +38,20 @@ const CheckoutPage = () => {
         return { product_id : item.productId, quantity: item.count, unit_price: `${item.unitPrice}`, price: `${item.price}` }
     })
 
-     
+    useEffect(() => {
+        const orderModal = document.querySelector('.modal__order-confirm')
+
+        const handleConfirmOrderModal = () => {
+            if (success) {
+                orderModal.showModal()
+            }
+        }
+
+        if (success) {
+            handleConfirmOrderModal()
+        } 
+
+    }, [success])
 
     useEffect(() => {
         setToday(currentDate())
@@ -76,7 +89,7 @@ const CheckoutPage = () => {
         enableReinitialize: true,
         onSubmit: (values) => {
             if (values.phone.length == 11) {
-                values.phone = '+880'+values.phone
+                values.phone = '+88'+values.phone
             } 
             handleOrderPOST(`order`,values, auth)
             localStorage.removeItem('cart')
@@ -191,15 +204,36 @@ const CheckoutPage = () => {
 
                                         <ErrorStatus error={error} />
                                         <SuccessStatus success={success} />
-                                        {
-                                            orderRes &&
-                                            <div className={`success-msg ${success && 'success'}`}>
-                                                Biller Id is {orderRes?.slug}       
-                                            </div>
-                                        }
                                     </div>
                                 </div>
                             </form>
+                            <dialog className='modal__order-confirm'>
+                            <div className="container">
+                                <div className="wrapper">
+                                    <div className="confirm-content flexcol">
+                                        <h2>Success!</h2>
+                                        <p>
+                                        Your invoice no. is <strong><em>{orderRes && orderRes?.slug}</em></strong>
+                                        </p>
+                                        <p>
+                                        Thanks for your submission, we will get back to you shortly within 24 hours! 
+                                        </p>
+                                        <div className="buttons flexitem">
+                                        <button className="primary-btn">
+                                            <Link to={`/profile/${user && user.username}/order`}>
+                                                Go to Personal Order 
+                                            </Link>
+                                        </button>
+                                        <button className="secondary-btn">
+                                            <Link to={`/`}>
+                                                Return Home
+                                            </Link>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </dialog>
                         </div>
 
 

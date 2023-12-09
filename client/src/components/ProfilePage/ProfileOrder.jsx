@@ -18,7 +18,7 @@ const ProfileOrder = () => {
 
     useEffect(() => {
     
-        handleOrderGET(`order`,``,``,``,``,``, auth)
+        handleOrderGET({name: `order`, token: auth})
 
     }, [delStatus, auth])
 
