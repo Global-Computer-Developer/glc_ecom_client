@@ -9,7 +9,6 @@ import ScrollToTop from './components/Home/ScrollToTop'
 import HeaderNavMobile from './components/Home/HeaderNavMobile'
 import { CartProvider } from './context/CartContext'
 import { useAuthContext } from './context/AuthContext'
-import Loading from './Utilities/Loading'
 import LoadingFull from './Utilities/LoadingFull'
 
 
@@ -28,7 +27,6 @@ const WishlistPage = lazy(() => import ('./pages/WishlistPage'))
 const CatPage = lazy(() => import ('./pages/CatPage'))
 const Profile = lazy(() => import ('./pages/Profile'))
 const ProductPage = lazy(() => import ('./pages/ProductPage'))
-const OrderConfirmPage = lazy(() => import ('./pages/OrderConfirmPage'))
 const CheckoutPage = lazy(() => import ('./pages/CheckoutPage'))
 const Home = lazy(() => import ('./pages/Home'))
 
@@ -178,8 +176,6 @@ function App() {
             <Route path='/cart' element={<CartPage />}></Route>
 
             <Route path='/checkout' element={<CheckoutPage />}></Route>
-
-            <Route path='/order-confirm/:slug' element={<OrderConfirmPage />}></Route>
 
             <Route path='/contact' element={<ContactUs />}></Route>
 

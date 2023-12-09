@@ -257,7 +257,7 @@ const ProductSection = ({
                                         <div className="stock medium-text">
                                             <div className="qty">
                                                 <span>Sold: <strong className='qty-sold'>{product.sold_stock}</strong></span>
-                                                <span>Stock: <strong className='qty-available'>{product.total_stock && stock}</strong></span>
+                                                <span>Stock: <strong className='qty-available'>{product.total_stock}</strong></span>
                                             </div>
                                             <StockBar 
                                                 productSold={product.sold_stock}

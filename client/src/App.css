@@ -2501,6 +2501,7 @@ form p {
   margin: 0;
   border-radius: 0;
   background-color: var(--secondary-dark-clr);
+  padding: 0;
 }
 
 
