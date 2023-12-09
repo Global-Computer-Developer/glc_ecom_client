@@ -82,7 +82,6 @@ const CatPage = () => {
     <section className='cat-page'>
 
         <div className={`single-category ${filterShow && `show-filter`}`}>
-            <LoadingFull loading={loading} />
             <div className="container">
                 <div className="wrapper">
 
@@ -148,7 +147,6 @@ const CatPage = () => {
                                 </div>
                             </div>
                             <section className='section'>
-
                                 <div className="row">
                                     <div className="cat-head">
                                         <div className="breadcrump">
@@ -231,6 +229,7 @@ const CatPage = () => {
 
                                 {/* featured products */}
                                 <div className="products main flexwrap">
+                                    <Loading loading={loading} />
                                     {
                                         loading == false &&
                                         searchProduct &&
