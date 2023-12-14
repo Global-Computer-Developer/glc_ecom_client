@@ -4266,10 +4266,12 @@ input[type="number"] {
 /* policies page */
 .policies__content {
   border: 1px solid var(--border-clr);
-  padding: 2em 5em;
+  padding: 2em calc(1em + 3vw);
   margin: 2em 0;
   border-radius: 10px;
 }
+
+
 .policies__content > h1 {
   font-size: 1.75em;
   margin-bottom: 1.25em;
