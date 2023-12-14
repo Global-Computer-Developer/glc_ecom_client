@@ -957,11 +957,12 @@ form.search button:hover{
   height: auto;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: max-height 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .off-canvus .expand > ul {
   max-height: 2000px;
+  transition: max-height 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .off-canvus .thetop-nav ul, .off-canvus nav > ul {
@@ -2318,13 +2319,15 @@ article.item :where(.available, .inavailable) {
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), opacity 0.875s;
+  transition: all 0.5s ease-in-out;
 }
 
 .products .collapse .expand > .content {
-  max-height: fit-content;
+  max-height: 20000px;
   visibility: visible;
   opacity: 1;
+  transition: all 0.5s ease-in-out;
+
 }
 
 .products .collapse .expand > a::before {
