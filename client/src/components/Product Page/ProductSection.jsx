@@ -143,7 +143,7 @@ const ProductSection = ({
                             {
                                 product &&
                                 product.is_stock &&
-                                product.discount == 0 &&
+                                product.discount !== 0 &&
                                     <span className="discount">{product.discount}% <br /> OFF</span>
                             }
                         </div>

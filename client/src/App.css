@@ -1820,10 +1820,12 @@ text
   border-radius: var(--percent-100);
   margin: .5em;
   transition: var(--trans-bg);
+  transition: border 0.5s ease-in-out;
 }
 
 .footer-info ul li a:hover {
   background-color: var(--border-clr);
+  border: 1px solid var(--secondary-clr);
 }
 
 .footer-info .logo a > img {
