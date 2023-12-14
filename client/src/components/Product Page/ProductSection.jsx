@@ -346,9 +346,8 @@ const ProductSection = ({
                                 <ul>
                                     <li 
                                         className={`has-child ${showFeatureTable && `expand`}`}
-                                        onClick={() => setShowFeatureTable(!showFeatureTable)}
                                     >
-                                        <a className="icon-small">Key Features</a>
+                                        <a className="icon-small" onClick={() => setShowFeatureTable(!showFeatureTable)}>Key Features</a>
                                       
                                         <table className='featured-table content'>
                                             <tbody>
@@ -367,18 +366,16 @@ const ProductSection = ({
                                     </li>
                                     <li 
                                         className={`has-child ${showDescTable && `expand`}`}
-                                        onClick={() => setShowDescTable(!showDescTable)}
                                     >
-                                        <a className="icon-small">Description</a>
+                                        <a className="icon-small" onClick={() => setShowDescTable(!showDescTable)}>Description</a>
                                         <div className='content description'>
                                             <p>{product?.description}</p>
                                         </div>
                                     </li>
                                     <li 
                                         className={`has-child ${showSpecTable && `expand`}`}
-                                        onClick={() => setShowSpecTable(!showSpecTable)}
                                     >
-                                        <a className='icon-small'>Specifications</a>
+                                        <a className='icon-small' onClick={() => setShowSpecTable(!showSpecTable)}>Specifications</a>
                                         <div className="content">
                                             {
                                                 product &&
@@ -414,9 +411,8 @@ const ProductSection = ({
 
                                     <li 
                                        className={`has-child ${showReviewTable && `expand`}`}
-                                       onClick={() => setShowReviewTable(!showReviewTable)}
                                     >
-                                        <a className="icon-small">Reviews <span className="mini-text">{product?.count_review}</span></a>
+                                        <a className="icon-small" onClick={() => setShowReviewTable(!showReviewTable)}>Reviews <span className="mini-text">{product?.count_review}</span></a>
                                         <div className="content">
                                             <div className="reviews">
                                                 <h4>Customers Reivew</h4>
