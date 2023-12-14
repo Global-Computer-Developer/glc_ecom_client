@@ -202,14 +202,13 @@ const ProductSection = ({
                             <div className="rating">
                                 {
                                     product &&
-                                    product.reviews[0] &&
-                                        <Stars NumStar={product.reviews[0].average_stars} />
+                                        <Stars NumStar={product.average_stars} />
                                 }
                                 <a href="#review-form" className="mini-text">
                                     {
                                         product.reviews[0] ?
                                         product.reviews[0].count_review :
-                                        `0`
+                                        `0 `
                                     } reviews
                                 </a>
                                 <a href="#review-form" className="add-review mini-text" onClick={() => {setShowFeatureTable(`reviews`)}}>Add Your Review</a>

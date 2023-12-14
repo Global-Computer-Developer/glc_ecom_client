@@ -32,6 +32,7 @@ const HeaderMain = ({showDpt, setShowDpt}) => {
                 setShowList(false)
             }
         }
+
         document.addEventListener('click', handleShow)
 
         return () => {
@@ -40,13 +41,22 @@ const HeaderMain = ({showDpt, setShowDpt}) => {
     }, [showList])
 
     useEffect(() => {
+        const dptCatOpt = document.querySelectorAll('.dpt-menu li a')
+
         const handleShowDpt = (e) => {
             const dptCat = dptCatRef.current
+
             if (dptCat != undefined && !dptCat.contains(e.target)) {
                 setShowDpt(false)
-            }
+            } 
         }
+
         document.addEventListener('click', handleShowDpt)
+        dptCatOpt.forEach(opt => {
+            opt.addEventListener('click', () => {
+                setShowDpt(false)
+            })
+        });
 
         return () => {
             document.removeEventListener('click', handleShowDpt)

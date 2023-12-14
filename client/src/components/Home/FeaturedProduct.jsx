@@ -9,8 +9,7 @@ const FeaturedProduct = () => {
 
 
     useEffect(() => {
-                        // name, id, order, page, size, category_slug, token, status, offered, featured,
-        handleFeaturedGET({name: `product`,page:1,size:18,status:`true`,featured: 1}) // no of item to show is '18' of page 1
+        handleFeaturedGET({name: `product`,page:1,size:24,status:`true`,featured: 1}) // no of item to show is '18' of page 1
     },[])
 
   return (
