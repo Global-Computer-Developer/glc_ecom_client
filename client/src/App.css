@@ -957,12 +957,12 @@ form.search button:hover{
   height: auto;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: max-height 0.3s ease-in-out;
 }
 
 .off-canvus .expand > ul {
   max-height: 2000px;
-  transition: max-height 0.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: max-height 0.5s ease-in-out;
 }
 
 .off-canvus .thetop-nav ul, .off-canvus nav > ul {
