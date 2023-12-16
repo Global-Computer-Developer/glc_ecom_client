@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import IncDrecButton from '../Utilities/IncDrecButton'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { useCartContext } from '../context/CartContext'
 import NoItem from '../Utilities/NoItem'
 import { currenyFormat } from '../Utilities/currencyFormat'

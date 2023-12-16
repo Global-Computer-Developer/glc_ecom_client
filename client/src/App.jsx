@@ -10,6 +10,8 @@ import HeaderNavMobile from './components/Home/HeaderNavMobile'
 import { CartProvider } from './context/CartContext'
 import { useAuthContext } from './context/AuthContext'
 import LoadingFull from './Utilities/LoadingFull'
+import ReactDOM from 'react-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 
 // page import
@@ -74,12 +76,6 @@ const OrderSingleUserDash = lazy(() => import ('./components/Dashboard/Order/Ord
 // -- profile
 const ProfileInfo = lazy(() => import ('./components/ProfilePage/ProfileInfo'))
 const ProfileOrder = lazy(() => import ('./components/ProfilePage/ProfileOrder'))
-
-
-
-
-
-
 
 
 function App() {
@@ -290,7 +286,5 @@ function App() {
     </div>
   )
 }
-
-
 
 export default App

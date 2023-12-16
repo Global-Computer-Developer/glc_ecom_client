@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import PasswordField from '../Utilities/PasswordField'

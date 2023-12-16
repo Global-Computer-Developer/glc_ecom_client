@@ -3,7 +3,7 @@ import ProductPageHeader from '../components/Product Page/ProductPageHeader'
 import ProductSection from '../components/Product Page/ProductSection'
 import RelatedProduct from '../components/Product Page/RelatedProduct'
 import { useParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { useGeneralGet } from '../hooks/useGeneralGet'
 import Loading from '../Utilities/Loading'
 import LoadingFull from '../Utilities/LoadingFull'
@@ -26,9 +26,8 @@ const ProductPage = () => {
     <>
     {
       product &&
-      product.title &&
       <Helmet>
-        <title>{product.title} | Global Computer (BD)</title>
+        <title>{product?.title} | Global Computer (BD)</title>
         <meta name='description' content={`Buy ${product.title} at the best price in Bangladesh. Latest ${product.brand} ${product.model_name} ${product.category.title} available at Global Computer (BD). Order online to get delivery in BD.`} />
         <meta name='keywords' content={product.title} />
         <meta property='og:title' content={product.title} />
