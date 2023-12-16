@@ -165,6 +165,7 @@ return (
                                         <li><Link to={`/career`}>Careers</Link></li>
                                         <li><Link to={`/policies`}>Policies</Link></li>
                                         <li><Link to={`/contact`}>Contact us</Link></li>
+                                        <li><Link>Terms and Conditions</Link></li>
                                     </ul>
                                 </div>
 

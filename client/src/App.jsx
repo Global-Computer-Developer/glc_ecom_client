@@ -29,6 +29,7 @@ const Profile = lazy(() => import ('./pages/Profile'))
 const ProductPage = lazy(() => import ('./pages/ProductPage'))
 const CheckoutPage = lazy(() => import ('./pages/CheckoutPage'))
 const Home = lazy(() => import ('./pages/Home'))
+const TermsNConditions = lazy(() => import ('./pages/TermsNConditions'))
 
 
 
@@ -184,6 +185,8 @@ function App() {
             <Route path='/career' element={<CareerPage />}></Route>
             
             <Route path='/policies' element={<PoliciesPage />}></Route>
+
+            <Route path='/terms-conditions' element={<TermsNConditions />}></Route>
 
             {
               (user != 'undefined' || user.length == 0) &&
