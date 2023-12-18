@@ -2060,7 +2060,8 @@ text
 
 .products.one :where(.big-image, .small-image) img {
   object-fit: contain;
-  aspect-ratio: attr (width) / attr(height);
+  width: var(--percent-100);
+  height: var(--percent-100);
   display: block;
 }
 

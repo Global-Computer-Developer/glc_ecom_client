@@ -159,7 +159,7 @@ const ProductSection = ({
                                             key={item.id}
                                             className="image-show"
                                             onClick={() => {setToggler(!toggler)}}>
-                                            <img src={item.image} alt={product.title} width="500" height='500' loading='eager' />
+                                            <img src={item.image} alt={product.title} loading='eager' />
                                         </div>
                                     </SwiperSlide>
                                 ))
