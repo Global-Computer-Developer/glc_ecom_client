@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /login
+Disallow: /signup
+Disallow: /dashboard
+Disallow: /dashboard/*
+
+Sitemap: https://globalcomputer.com.bd/sitemap.txt

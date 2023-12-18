@@ -9,16 +9,24 @@ import { Helmet } from 'react-helmet-async'
 const Home = () => {
   return (
     <>
-    <section id='page' className='home-page'>
       <Helmet>
         <title>Global Computer (BD) | Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh</title>
-        <meta property="'description" content="Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh" />
-        <meta property="'keywords" content="Laptop shop in Bangladesh, Laptop shop in bd, computer shop in Bangladesh, PC shop in Bangladesh, computer shop in BD, Gaming PC shop in Bangladesh, PC accessories shop in Bangladesh, Online Shop in BD, online computer shop in bd, computer accessories online shop in Bangladesh, computer parts shop in bd, Laptop in Bangladesh, Notebook, Laptop, Desktop, Brand PC, computer, computer store Bangladesh, laptop store Bangladesh, gaming, desktop, monitor, CC camera, CCTV, Global Computer (BD), computer accessories, Desktop accessories, Laptop accessories, Laptop Online Store in BD, hp, apple, asus, bangladesh, boya, brother, cable, GPU, graphics card" />
-        <meta property="'og:title" content="Global Computer (BD)" />
+        <meta 
+          name="description" 
+          content="Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh" 
+        />
+        <meta property="keywords" content="Laptop shop in Bangladesh, Laptop shop in bd, computer shop in Bangladesh, PC shop in Bangladesh, computer shop in BD, Gaming PC shop in Bangladesh, PC accessories shop in Bangladesh, Online Shop in BD, online computer shop in bd, computer accessories online shop in Bangladesh, computer parts shop in bd, Laptop in Bangladesh, Notebook, Laptop, Desktop, Brand PC, computer, computer store Bangladesh, laptop store Bangladesh, gaming, desktop, monitor, CC camera, CCTV, Global Computer (BD), computer accessories, Desktop accessories, Laptop accessories, Laptop Online Store in BD, hp, apple, asus, bangladesh, boya, brother, cable, GPU, graphics card" />
+        <meta property="og:title" content="Global Computer (BD)" />
         <meta property="og:image" content={`/${import.meta.env.VITE_LOGO_MINI}`} />
         <meta property="og:url" content="https://globalcomputer.com.bd/" />
-        <meta property="og:description" content="Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh" />
+        <meta 
+          property="og:description" 
+          content="Reliable Computer Laptop, Desktop & Component Retail Shop in Bangladesh" />
+        <meta property="og:type" content="website" data-rh="true" />
+        <link rel="canonical" href="https://globalcomputer.com.bd/" />
+        <meta name="robots" content="index" />
       </Helmet>
+    <section id='page' className='home-page'>
       
       <DptMenuHome />
       <Slider />

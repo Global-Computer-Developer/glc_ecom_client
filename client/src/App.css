@@ -19,7 +19,7 @@
   --available-clr: #10ac84;
 
   --fz-small: 13px;
-  --fz-smaller: 11px;
+  --fz-smaller: 12px;
 
   --percent-100: 100%;
   --percent-50: 50%;
@@ -525,15 +525,16 @@ button.primary-btn:disabled  {
 
 
 /* 01. header */
- :where(.off-canvus, header) li > a{
+ :where(.off-canvus, header) li > :where(a, span){
   display: flex;
   position: relative;
   line-height: inherit;
   transition: var(--trans-clr);
+  cursor: pointer;
  }
 
 
- :where(.off-canvus, header) li > a:hover{
+ :where(.off-canvus, header) li > :where(a, span):hover{
   color: var(--secondary-clr);
  }
 
@@ -782,7 +783,7 @@ nav .fly-item,
 }
 
 
-:where(.dpt-menu, .home-page .dpt-menu-home) > ul > li > a {
+:where(.dpt-menu, .home-page .dpt-menu-home) > ul > li > :where(a, span) {
   font-size: var(--fz-small);
   height: 46px;
   align-items: center;
@@ -1381,7 +1382,7 @@ text
 .item .medium-text.desktop-hide li span {
   margin: 0.25em 0;
   color: var(--dark-clr);
-  font-size: 0.875em;
+  font-size: var(--fz-smaller);
 }
 
 .item .medium-text.desktop-hide {
@@ -1760,6 +1761,10 @@ text
   margin-bottom: 1.5em;
 }
 
+.widgets .item strong {
+  margin-bottom: 1em;
+}
+
 .widgets .item h4:first-child {
   margin-bottom: 2em;
 }
@@ -1847,14 +1852,14 @@ text
   min-height: 60px;
   background-color: var(--white-clr);
   box-shadow: 0 -2px 10px rgb(0 0 0/10%);
-  z-index: 999;
+  z-index: 80;
 }
 
 .menu-bottom nav li {
   flex: 1;
 }
 
-.menu-bottom nav li a {
+.menu-bottom nav li :where(a, span) {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1864,7 +1869,7 @@ text
   transition: var(--trans-clr);
 }
 
-.menu-bottom nav li a:hover {
+.menu-bottom nav li :where(a, span):hover {
   color: var(--dark-clr);
 }
 
@@ -1872,15 +1877,16 @@ text
   color: var(--secondary-clr);
 }
 
-.menu-bottom nav li a span {
+.menu-bottom nav li :where(a, span) span {
   font-size: 0.75em;
 }
 
-.menu-bottom nav li a i {
+.menu-bottom nav li :where(a, span) i {
   font-size: 1.25em;
 }
 
 .menu-bottom .fly-item {
+  top: 2.5em;
   right: 53%;
   width: 16px;
   border-radius: var(--percent-50);
@@ -1911,6 +1917,8 @@ text
   position: absolute;
   top: -54px;
   right: 0;
+  color: var(--white-clr);
+  cursor: pointer;
   background-color: var(--primary-clr);
 }
 
@@ -2885,12 +2893,7 @@ form p {
 .mini-wishlist .wishlist-body {
   padding: 0 1.5em;
   margin: 0 -1.5em;
-  max-height: 300px;
   overflow: auto;
-}
-
-.mini-cart .cart-body{
-  height: 200px;
 }
 
 
@@ -2930,6 +2933,16 @@ form p {
 
 :where(.mini-cart, .mini-wishlist) .products.mini .item {
   flex: 0 0 100%;
+}
+
+.mini-cart.show {
+  position: relative;
+}
+
+.mini-cart.show .cart-footer {
+  position: absolute;
+  width: 87%;
+  bottom: 0;
 }
 
 .mini-cart .subtotal {
@@ -4048,7 +4061,7 @@ dialog::backdrop {
 
 .feature-list {
   gap: 1.5em;
-  font-size: 0.875em;
+  font-size:  var(--fz-smaller);
 }
 
 
@@ -5008,7 +5021,7 @@ input[type="number"] {
   }
 
   nav .mega h4 {
-    font-size: 0.8em;
+    font-size: 12px;
     text-transform: uppercase;
   }
 

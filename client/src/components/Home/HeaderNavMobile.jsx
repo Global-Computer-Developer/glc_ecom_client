@@ -58,6 +58,7 @@ const HeaderNavMobile = ({
                         {   
                             pathname !== '/signup' && pathname !== '/login' &&
                             <button 
+                                aria-label='Trigger Side Menu Button'
                                 className="trigger desktop-hide"
                                 onClick={() => {setShowMenu(true)}}
                             >
@@ -137,10 +138,10 @@ const HeaderNavMobile = ({
                     <div className="right">
                         <ul className="flexitem gap-1">
                             <li className='iswishlist mobile-hide'>
-                                <a>
+                                <span>
                                     <div className="icon-large"><i className="ri-heart-line"></i></div>
                                     <div className="fly-item"><span className="item-number">{wishlist.length}</span></div>
-                                </a>
+                                </span>
                                 
                                 {/* wishlist overlay */}
                                 <div 
@@ -202,7 +203,7 @@ const HeaderNavMobile = ({
 
 
                             <li className='iscart'>
-                                <a className='cart-icon'>
+                                <span className='cart-icon'>
                                     <div className="icon-large">
                                         <i className="ri-shopping-cart-line"></i>
                                         <div className="fly-item"><span className="item-number">{cart.length}</span></div>
@@ -211,7 +212,7 @@ const HeaderNavMobile = ({
                                         <div className="mini-text">Total</div>
                                         <div className="cart-total">{currenyFormat(cartTotal)}</div>
                                     </div>
-                                </a>
+                                </span>
 
                                 
 

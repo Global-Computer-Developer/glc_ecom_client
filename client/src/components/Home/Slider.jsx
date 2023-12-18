@@ -44,6 +44,7 @@ const Slider = () => {
                                                 <img
                                                     src={item?.image} 
                                                     loading='lazy'
+                                                    alt={item?.mini_text || `slider ${item?.id}`}
                                                 />
                                             </Link>
                                         </div>

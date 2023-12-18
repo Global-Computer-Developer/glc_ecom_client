@@ -244,7 +244,7 @@ return (
                                 </NavLink>
                             </li>
                             <li>
-                                <a 
+                                <span 
                                     className='t-search' 
                                     onClick={() => {
                                         setShowSearch(true)
@@ -253,10 +253,10 @@ return (
                                 >
                                     <i className="ri-search-line"></i>
                                     <span>Search</span>
-                                </a>
+                                </span>
                             </li>
                             <li>
-                                <a
+                                <span
                                     className='cart-trigger' 
                                     onClick={() => {
                                         setShowCart(true)
@@ -266,9 +266,9 @@ return (
                                     <i className="ri-shopping-cart-line"></i>
                                     <span>Cart</span>
                                     <div className="fly-item">
-                                        <span className="item-number">{cart.length}</span>
+                                        <div className="item-number">{cart.length}</div>
                                     </div>
-                                </a>
+                                </span>
                             </li>
                         </ul>
                     </nav>
@@ -284,12 +284,12 @@ return (
             <div className="container">
                 <div className="wrapper">
                     <form className='search' onSubmit={handleSubmit}>
-                        <a
+                        <span
                             className="t-close search flexcenter"
                             onClick={() => {setShowSearch(false)}}
                         >
                             <i className="ri-close-line"></i>
-                        </a>
+                        </span>
                         <span className="icon-large"><i className="ri-search-line"></i></span>
                         <input 
                             type="search" 

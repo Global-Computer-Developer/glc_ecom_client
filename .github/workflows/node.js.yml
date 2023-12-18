@@ -21,6 +21,7 @@ jobs:
           npm i
           cd client
           npm i
+          npm i react-snap
           npm run build
           pm2 stop 0
           pm2 start 0

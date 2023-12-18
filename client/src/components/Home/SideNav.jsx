@@ -66,7 +66,7 @@ const SideNav = ({setShowMenu}) => {
                                 className={cat?.sub_side_menu.length != 0 ? `has-child` : ``}
                                 key={cat.id}
                             >
-                                <a className='sub-menu-link'>
+                                <span className='sub-menu-link'>
                                     <div className="icon-large"><i className={`ri-${cat.logo}`}></i></div>
                                         {cat.title} 
                                     {
@@ -75,7 +75,7 @@ const SideNav = ({setShowMenu}) => {
                                                 <i className="ri-arrow-right-s-line"></i>
                                             </div>
                                     }
-                                </a>
+                                </span>
                                 <ul>
                                 {   
                                     cat?.sub_side_menu &&

@@ -92,7 +92,7 @@ function App() {
   useEffect(() => {
 
     // show sub menu on mobile
-    const submenu = document.querySelectorAll('.has-child a')
+    const submenu = document.querySelectorAll('.has-child span')
 
     function toggle (e) {
       e.preventDefault()
