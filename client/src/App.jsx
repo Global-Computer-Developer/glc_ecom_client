@@ -1,18 +1,18 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react'
 import './App.css'
-import Header from './components/Home/Header'
-import SideNav from './components/Home/SideNav'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Home/Footer'
-import HeaderMain from './components/Home/HeaderMain'
 import ScrollToTop from './components/Home/ScrollToTop'
-import HeaderNavMobile from './components/Home/HeaderNavMobile'
 import { CartProvider } from './context/CartContext'
 import { useAuthContext } from './context/AuthContext'
 import LoadingFull from './Utilities/LoadingFull'
-import ReactDOM from 'react-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async'
 
+
+// navigations component
+const SideNav = lazy(() => import('./components/Home/SideNav'))
+const Header = lazy(() => import('./components/Home/Header'))
+const HeaderMain = lazy(() => import('./components/Home/HeaderMain'))
+const HeaderNavMobile = lazy(() => import('./components/Home/HeaderNavMobile'))
 
 // page import
 

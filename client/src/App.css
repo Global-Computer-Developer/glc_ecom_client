@@ -1087,8 +1087,7 @@ form.search button:hover{
 
 .swiper-slide img {
   display: block;
-  width: 100%;
-  height: 100%;
+  aspect-ratio: attr(width) / attr(height);
   object-fit: cover;
 }
 
@@ -1879,6 +1878,8 @@ text
 
 .menu-bottom nav li :where(a, span) span {
   font-size: 0.75em;
+  font-weight: var(--fw-500);
+  cursor: pointer;
 }
 
 .menu-bottom nav li :where(a, span) i {
@@ -2059,8 +2060,7 @@ text
 
 .products.one :where(.big-image, .small-image) img {
   object-fit: contain;
-  width: var(--percent-100);
-  height: var(--percent-100);
+  aspect-ratio: attr (width) / attr(height);
   display: block;
 }
 
@@ -2252,8 +2252,9 @@ article.item :where(.available, .inavailable) {
 
 
 /* 4.5 product review */
-.products .collapse .has-child > a {
+.products .collapse .has-child > h2 {
   position: relative;
+  font-size: 1em;
   font-weight: var(--fw-700);
   text-transform: uppercase;
   padding: 1em 1.25em;
@@ -2263,7 +2264,7 @@ article.item :where(.available, .inavailable) {
   cursor: pointer;
 }
 
-.products .collapse .has-child > a::before {
+.products .collapse .has-child > h2::before {
   content: '+';
   position: absolute;
   left: 0;
@@ -2338,7 +2339,7 @@ article.item :where(.available, .inavailable) {
 
 }
 
-.products .collapse .expand > a::before {
+.products .collapse .expand > h2::before {
   content: '-';
 }
 
@@ -2351,7 +2352,7 @@ article.item :where(.available, .inavailable) {
 
 
 /* 4.6 product review  */
-.products .reviews h4 {
+.products .reviews :where(h3, h4) {
   font-size: 2em;
   color: var(--light-txt-clr);
   padding-top: 1em;

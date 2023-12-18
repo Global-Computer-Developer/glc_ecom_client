@@ -98,14 +98,14 @@ const HeaderMain = ({showDpt, setShowDpt}) => {
                                 <div className="mini-text mobile-hide">Total {product && product.count} products</div>
                                 {
                                     pathname !== '/' &&
-                                    <a 
+                                    <span 
                                         className="dpt-trigger mobile-hide"
                                         onClick={() => {setShowDpt(!showDpt)}}
                                     >
                                         <i className="ri-menu-3-line ri-xl"></i>
                                         
                                         <i className="ri-close-line ri-xl"></i>
-                                    </a>
+                                    </span>
                                 }
                             </div>
                             <div className="dpt-menu">

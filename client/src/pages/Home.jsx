@@ -1,10 +1,14 @@
-import React from 'react'
-import Slider from '../components/Home/Slider'
-import Brand from '../components/Home/Brand'
-import TrendingProduct from '../components/Home/TrendingProduct'
-import FeaturedProduct from '../components/Home/FeaturedProduct'
-import DptMenuHome from '../components/Home/DptMenuHome'
+import React, { lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
+
+
+
+const Slider = lazy(() => import ('../components/Home/Slider'))
+const Brand = lazy(() => import ('../components/Home/Brand'))
+const TrendingProduct = lazy(() => import ('../components/Home/TrendingProduct'))
+const FeaturedProduct = lazy(() => import ('../components/Home/FeaturedProduct'))
+const DptMenuHome = lazy(() => import ('../components/Home/DptMenuHome'))
+
 
 const Home = () => {
   return (

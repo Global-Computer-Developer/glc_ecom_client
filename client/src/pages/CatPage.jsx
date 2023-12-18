@@ -54,9 +54,9 @@ const CatPage = () => {
 
 
     useEffect(() => {
-        handleMaxProductGET(`product`, pathname, 1, 1, ``, `-price`)    // api_url_name, arr_path, size, page
-        handleMinProductGET(`product`, pathname, 1, 1, ``, `price`)     // api_url_name, arr_path, size, page
-        handleSearchProductGET(`product`, pathname, size, page, ``, order, minPrice, maxPrice)     // api_url_name, arr_path, size, page
+        handleMaxProductGET(`display-product`, pathname, 1, 1, ``, `-price`)    // api_url_name, arr_path, size, page
+        handleMinProductGET(`display-product`, pathname, 1, 1, ``, `price`)     // api_url_name, arr_path, size, page
+        handleSearchProductGET(`display-product`, pathname, size, page, ``, order, minPrice, maxPrice)     // api_url_name, arr_path, size, page
         window.scrollTo(0,0)
     },[pathname, size, order, minPrice, maxPrice])
 

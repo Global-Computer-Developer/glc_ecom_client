@@ -187,9 +187,20 @@ return (
                         </div>
                         <div className="socials">
                             <ul className="flexitem">
-                                <li><a href="" className='facebook'><i className="ri-facebook-line"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/Global.fenibd/" className='facebook' aria-label='Visit us on facebook'>
+                                        <i className="ri-facebook-line"></i>
+                                    </a>
+                                </li>
                                 {/* <li><a href=""><i className="ri-youtube-line"></i></a></li> */}
-                                <li><a href="" className='linkedin'><i className="ri-linkedin-line"></i></a></li>
+                                <li>
+                                    <a 
+                                        href="https://www.linkedin.com/company/global-computer-bd-ltd/about/" 
+                                        className='linkedin' aria-label='Visit us on Linkedin'
+                                    >
+                                            <i className="ri-linkedin-line"></i>
+                                    </a>
+                                </li>
                                 {/* <li><a href=""><i className="ri-twitter-line"></i></a></li> */}
                                 {/* <li><a href=""><i className="ri-instagram-line"></i></a></li> */}
                             </ul>

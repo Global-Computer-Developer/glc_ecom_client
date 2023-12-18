@@ -58,18 +58,18 @@ const Hoverable = ({
                     product.is_stock,
                 )}}
             >
-                <button type='button' title='Add to Wishlist' disabled={!active}>
+                <button type='button' title='Add to Wishlist' >
                     <i className="ri-heart-line"></i>
                 </button>
             </li>
             <li>
-                <button type='button' title='Quick view' onClick={handleOpenModal} disabled={!active}>
+                <button type='button' title='Quick view' onClick={handleOpenModal} >
                     <i className="ri-eye-line"></i>
                 </button>
             </li>
             <li>
                 <CopyToClipboard text={`${import.meta.env.VITE_APP_URL}/product/` + product.slug} >
-                    <button type='button' title='Share Link' onClick={() => {setCopy(true)}} disabled={!active}>
+                    <button type='button' title='Share Link' onClick={() => {setCopy(true)}} >
                         <i className="ri-share-forward-line"></i>
                     </button>
                 </CopyToClipboard>

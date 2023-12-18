@@ -12,8 +12,8 @@ const TrendingProduct = () => {
 
 
     useEffect(() => {
-        handleOfferedProductGET({name: `product`,page: 1,size: 6, offered: 1, status: `1`})
-        handleProductBigGET({name:`product`, display_big: `true`})
+        handleOfferedProductGET({name: `display-product`,page: 1,size: 6, offered: 1, status: `1`})
+        handleProductBigGET({name:`display-product`, display_big: `true`})
     }, [])
 
 

@@ -153,13 +153,13 @@ const ProductSection = ({
                             className="big-image mySwiper"
                         >   
                             {
-                                product.images.map(product => (
+                                product.images.map(item => (
                                     <SwiperSlide className="big-image-wrapper">
                                         <div 
-                                            key={product.id}
+                                            key={item.id}
                                             className="image-show"
                                             onClick={() => {setToggler(!toggler)}}>
-                                            <img src={product.image} alt={product.title} />
+                                            <img src={item.image} alt={product.title} width="500" height='500' loading='eager' />
                                         </div>
                                     </SwiperSlide>
                                 ))
@@ -178,9 +178,9 @@ const ProductSection = ({
                                 className="small-image-wrapper flexitem"
                             >
                                 {
-                                    product.images.map(product => (
-                                        <SwiperSlide key={product.id} className='thumbnail-show'>
-                                            <img src={product.image} alt={product.title} loading='lazy' />
+                                    product.images.map(item => (
+                                        <SwiperSlide key={item.id} className='thumbnail-show'>
+                                            <img src={item.image} alt={product.title} loading='lazy' />
                                         </SwiperSlide>
 
                                     ))
@@ -346,7 +346,7 @@ const ProductSection = ({
                                     <li 
                                         className={`has-child ${showFeatureTable && `expand`}`}
                                     >
-                                        <a className="icon-small" onClick={() => setShowFeatureTable(!showFeatureTable)}>Key Features</a>
+                                        <h2 className="icon-small" onClick={() => setShowFeatureTable(!showFeatureTable)}>Key Features</h2>
                                       
                                         <table className='featured-table content'>
                                             <tbody>
@@ -366,7 +366,7 @@ const ProductSection = ({
                                     <li 
                                         className={`has-child ${showDescTable && `expand`}`}
                                     >
-                                        <a className="icon-small" onClick={() => setShowDescTable(!showDescTable)}>Description</a>
+                                        <h2 className="icon-small" onClick={() => setShowDescTable(!showDescTable)}>Description</h2>
                                         <div className='content description'>
                                             <p>{product?.description}</p>
                                         </div>
@@ -374,7 +374,7 @@ const ProductSection = ({
                                     <li 
                                         className={`has-child ${showSpecTable && `expand`}`}
                                     >
-                                        <a className='icon-small' onClick={() => setShowSpecTable(!showSpecTable)}>Specifications</a>
+                                        <h2 className='icon-small' onClick={() => setShowSpecTable(!showSpecTable)}>Specifications</h2>
                                         <div className="content">
                                             {
                                                 product &&
@@ -411,10 +411,10 @@ const ProductSection = ({
                                     <li 
                                        className={`has-child ${showReviewTable && `expand`}`}
                                     >
-                                        <a className="icon-small" onClick={() => setShowReviewTable(!showReviewTable)}>Reviews <span className="mini-text">{product?.count_review}</span></a>
+                                        <h2 className="icon-small" onClick={() => setShowReviewTable(!showReviewTable)}>Reviews <span className="mini-text">{product?.count_review}</span></h2>
                                         <div className="content">
                                             <div className="reviews">
-                                                <h4>Customers Reivew</h4>
+                                                <h3>Customers Reivew</h3>
                                                 <div className="review-block">
                                                     <div className="review-block-head">
                                                         <div className="flexitem">

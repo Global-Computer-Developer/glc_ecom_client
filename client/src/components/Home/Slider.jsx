@@ -43,7 +43,8 @@ const Slider = () => {
                                             <Link to={item.slider_url}>
                                                 <img
                                                     src={item?.image} 
-                                                    loading='lazy'
+                                                    width='160'
+                                                    height='90'
                                                     alt={item?.mini_text || `slider ${item?.id}`}
                                                 />
                                             </Link>
