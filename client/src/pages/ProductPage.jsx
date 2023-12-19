@@ -41,6 +41,7 @@ const ProductPage = () => {
           <meta property='product:condition' content='new' />
           <meta property='product:price:amount' content={product && product.price} />
           <meta property='product:price:currency' content='BDT' />
+          <meta name="robots" content="index" />
         </Helmet>
         <LoadingFull loading={loading} />
         <div className="container">

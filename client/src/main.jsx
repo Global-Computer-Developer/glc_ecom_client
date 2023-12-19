@@ -10,21 +10,7 @@ import { HelmetProvider } from 'react-helmet-async'
 
 // ReactDOM.render(<App />, document.getElementById('root'))
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//     <HelmetProvider>
-//       <BrowserRouter>
-//         <AuthProvider>
-//           <QuickViewProvider>
-//             <App />
-//           </QuickViewProvider>
-//         </AuthProvider>
-//       </BrowserRouter>
-//     </HelmetProvider>
-// )
-
-const rootElement = document.getElementById("root");
-if (rootElement.hasChildNodes()) {
-  hydrate(
+ReactDOM.createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <BrowserRouter>
         <AuthProvider>
@@ -34,17 +20,4 @@ if (rootElement.hasChildNodes()) {
         </AuthProvider>
       </BrowserRouter>
     </HelmetProvider>
-  , rootElement);
-} else {
-  render(
-    <HelmetProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <QuickViewProvider>
-            <App />
-          </QuickViewProvider>
-        </AuthProvider>
-      </BrowserRouter>
-    </HelmetProvider>
-  , rootElement);
-}
+)
